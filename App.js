@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen'
 
 //DEPENDENCIES
 
@@ -10,6 +11,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 //COMPONENTS
 
 import OnBoarding from './src/screens/Authentication/OnBoarding/OnBoarding';
+import SignIn from './src/screens/SignIn';
+
 
 
 const AuthenticationStack = createStackNavigator();
@@ -24,7 +27,8 @@ const AuthenticationNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <AuthenticationNavigator />
+      <SignIn />
+      {/* <AuthenticationNavigator /> */}
     </NavigationContainer>
   );
 }

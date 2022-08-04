@@ -1,6 +1,5 @@
 import { Dimensions, StyleSheet, Text, View, Animated, FlatList, ImageBackground } from 'react-native'
 import React, {useRef} from 'react'
-import ButtonHome from '../../../components/ButtonHome'
 import { extrapolate, useValue } from 'react-native-reanimated'
 import Slide from './Slide'
 
@@ -16,21 +15,24 @@ const OnBoarding = () => {
       boldText: "goûts",
       infosTitle : "Selon tes envies",
       infosText: "Viandes, Poisson, Burger, Vegan... tu trouveras une recettes faites pour toi",
-      iconUrl: require("../../../../assets/AnimationIcons/92072-foodie.json")
+      iconUrl: require("../../../../assets/AnimationIcons/92072-foodie.json"),
+      btnType: "SECOND",
     },
     {
       lighText: "Pour tout les ",
       boldText: "budgets",
       infosTitle: "Sans te ruiner",
       infosText: "Tu trouverras des recettes adaptées à ton budget",
-      iconUrl:  require("../../../../assets/AnimationIcons/55607-flying-wallet-money.json")
+      iconUrl:  require("../../../../assets/AnimationIcons/55607-flying-wallet-money.json"),
+      btnType: "SECOND",
     },
     {
       lighText: "Pour tout les ",
       boldText: "niveaux",
       infosTitle : "Tu en es capable",
       infosText: "Chef étoilé ou pas , il y des recettes adaptées à ton niveau de cuisine",
-      iconUrl:  require("../../../../assets/AnimationIcons/92072-foodie.json")
+      iconUrl:  require("../../../../assets/AnimationIcons/92072-foodie.json"),
+      btnType: "SECOND",
     },
     {
       lighText: "Faits toi ",
@@ -38,8 +40,8 @@ const OnBoarding = () => {
       infosTitle : "Let's go",
       infosText: "Decouvre nos dernieres recettes et montre à tout le monde tes talents de chef",
       iconUrl: require("../../../../assets/AnimationIcons/24845-holding-money.json"),
-      btnColor: "green",
-      btnTxt: "Hello"
+      btnType: "FIRST",
+      btnTxt: "C'est partie !"
     },
   ]
 
@@ -79,7 +81,7 @@ const OnBoarding = () => {
     infosTitle={item.infosTitle}
     infosText={item.infosText}
     iconUrl={item.iconUrl}
-    btnColor={item.btnColor}
+    btnType={item.btnType}
     btnTxt={item.btnTxt}
     />
 ) 
