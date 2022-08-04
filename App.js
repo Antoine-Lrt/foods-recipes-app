@@ -1,12 +1,31 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+//DEPENDENCIES
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+//COMPONENTS
+
+import OnBoarding from './src/screens/Authentication/OnBoarding/OnBoarding';
+
+
+const AuthenticationStack = createStackNavigator();
+const AuthenticationNavigator = () => {
+  return (
+    <AuthenticationStack.Navigator>
+      <AuthenticationStack.Screen name='OnBoarding' component={OnBoarding} options={{headerShown: false}} />
+    </AuthenticationStack.Navigator>
+  )
+}
+
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <AuthenticationNavigator />
+    </NavigationContainer>
   );
 }
 
