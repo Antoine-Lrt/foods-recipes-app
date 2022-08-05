@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native'
 import React from 'react'
+import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 
 const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor }) => {
@@ -9,7 +9,7 @@ const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor }) => {
         style={[
           styles.buttonContainer, 
           styles[`buttonContainer_${type}`],
-          bgColor ? {backgroundColor: bgColor} : {}
+          bgColor ? {borderColor: bgColor, backgroundColor: null, borderWidth: 1} : {}
           ]} 
         onPress={onPress}
         >
@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
   
 
     buttonContainer:{
-      width: 300,
-      height: 60,
-      borderRadius: 5,
+      width: 250,
+      height: 50,
+      borderRadius: 10,
       justifyContent: 'center',
       alignItems:'center',
-      marginBottom: 30,
+      marginBottom: 10,
     },
 
     buttonContainer_FIRST: {
@@ -44,17 +44,25 @@ const styles = StyleSheet.create({
     buttonContainer_SECOND: {
     },
 
+    buttonContainer_TERTIARY: {
+      borderColor: "green",
+      borderWidth:2
+    },
+
     buttonText:{
       color: "white",
       fontFamily: 'Futura',
-      fontWeight: 'bold' ,
+      fontWeight: '700' ,
     },
 
       buttonText_SECOND:{
         color: "grey",
-        fontFamily: 'Futura',
-        fontWeight: 'bold' ,
+        fontWeight: '500' ,
     },
+
+    buttonText_TERTIARY:{
+      color: "green",
+  },
 
 })
 

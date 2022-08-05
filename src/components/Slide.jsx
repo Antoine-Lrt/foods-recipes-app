@@ -1,8 +1,7 @@
-import { Dimensions, StyleSheet, Text, View,ImageBackground } from 'react-native'
 import LottieView from 'lottie-react-native'
-import React, { useRef } from 'react'
-import CustomButton from '../../../components/CustomButton'
-import Animated from 'react-native-reanimated'
+import React from 'react'
+import { Dimensions, StyleSheet, Text, View } from 'react-native'
+import CustomButton from '../components/CustomButton'
 
 
 

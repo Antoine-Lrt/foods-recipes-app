@@ -10,8 +10,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //COMPONENTS
 
-import OnBoarding from './src/screens/Authentication/OnBoarding/OnBoarding';
-import SignIn from './src/screens/SignIn';
+import OnBoarding from './src/screens/Authentication/OnBoarding';
+import SignIn from './src/screens/Authentication/SignIn';
+import SignUp from './src/screens/Authentication/SignUp';
+import ConfirmeEmail from './src/screens/Authentication/ConfirmEmail'
+import ResetPassword from './src/screens/Authentication/ResetPassword'
 
 
 
@@ -27,7 +30,10 @@ const AuthenticationNavigator = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <SignIn />
+      <ResetPassword />
+      {/* <ConfirmeEmail /> */}
+      {/* <SignUp />  */}
+      {/* <SignIn /> */}
       {/* <AuthenticationNavigator /> */}
     </NavigationContainer>
   );
