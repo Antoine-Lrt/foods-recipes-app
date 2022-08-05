@@ -4,8 +4,11 @@ import {
 } from 'react-native';
 import CustomButton from '../../components/CustomButton';
 import CustomInput from '../../components/CustomInput';
+import SocialSignInButton from '../../components/SocialSignInButton'
 import logo from '../../../assets/images/logo.png'
 import image from '../../../assets/images/background.jpg'
+
+import { useNavigation } from '@react-navigation/native';
 
 
 
@@ -13,16 +16,19 @@ function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigation = useNavigation()
+
   const onSignPressed = () => {
-    console.warn('Connecté');
+    //user valide
+    navigation.navigate('TabBar')
   };
 
   const onForgotPassword = () => {
-    console.warn('Créer un nouveau mot de passe');
+    navigation.navigate('ForgotPassword')
   };
 
   const onCreateAccount = () => {
-    console.warn('Creer un compte');
+    navigation.navigate('SignUp')
   };
 
  

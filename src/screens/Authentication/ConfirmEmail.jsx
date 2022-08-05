@@ -4,20 +4,24 @@ import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
 import image from '../../../assets/images/background.jpg'
 
+import { useNavigation } from '@react-navigation/native'
 
 
 
-const SignUp = () => {
+
+const ConfirmEmail = () => {
 
   const [code, setCode] = useState('')
 
+  const navigation = useNavigation()
+
 
   const onConfirmEmail = () =>{
-    console.warn("Confirmer l'Email");
+    navigation.navigate('Home')
   }
 
   const onConnected = () =>{
-    console.warn("Se conencter");
+    navigation.navigate('SignIn')
   }
 
   const onResendCode = () =>{
@@ -71,7 +75,7 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default ConfirmEmail
 
 const styles = StyleSheet.create({
   confirmEmailContainer:{

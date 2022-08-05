@@ -10,7 +10,7 @@ const {width} = Dimensions.get("window")
 
 
 
-const Slide = ({lighText, boldText, iconUrl, infosTitle, infosText, btnTxt, btnType}) => {
+const Slide = ({lighText, boldText, iconUrl, infosTitle, infosText, btnTxt, btnType,btnOnPress }) => {
 
     const Indicator = ({scrollx}) => {
         return <View>
@@ -38,7 +38,7 @@ const Slide = ({lighText, boldText, iconUrl, infosTitle, infosText, btnTxt, btnT
             <View style={styles.slideInfosContainer}>
                 <Text style={styles.slideInfosTitle} > {infosTitle} </Text>
                 <Text style={styles.slideInfosText}> {infosText} </Text>
-                <CustomButton text={btnTxt} type={btnType} />
+                <CustomButton text={btnTxt} type={btnType} onPress={btnOnPress} />
             </View>
            
   

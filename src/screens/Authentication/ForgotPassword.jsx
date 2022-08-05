@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
-const ResetPassword = () => {
+const ForgotPassword = () => {
 
   const [code, setCode] = useState('')
   const [newPassword, setNewPassword] = useState('')
@@ -17,7 +17,7 @@ const ResetPassword = () => {
 
 
   const onSubmit = () =>{
-    navigation.navigate('SignIn')
+    navigation.navigate('ResetPassword')
   }
 
   const onBackToSign = () =>{
@@ -41,16 +41,9 @@ const ResetPassword = () => {
               </View>
       
               <CustomInput 
-                  placeholder={"Code de confirmation"}
+                  placeholder={"Pseudo"}
                   value={code}
                   setValue={setCode} 
-                  secureText={false}
-                />
-
-              <CustomInput 
-                  placeholder={"Entrer votre nouveau mot de passe"}
-                  value={newPassword}
-                  setValue={setNewPassword} 
                   secureText={false}
                 />
 
@@ -74,7 +67,7 @@ const ResetPassword = () => {
   )
 }
 
-export default ResetPassword
+export default ForgotPassword
 
 const styles = StyleSheet.create({
     resetPasswordContainer:{

@@ -4,6 +4,9 @@ import CustomButton from '../../components/CustomButton'
 import CustomInput from '../../components/CustomInput'
 import image from '../../../assets/images/background.jpg'
 import SocialSignInButton from '../../components/SocialSignInButton'
+import { useNavigation } from '@react-navigation/native'
+
+
 
 
 
@@ -14,16 +17,14 @@ const SignUp = () => {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
 
-  const onSignPressed = () =>{
-    console.warn("Connecté");
-  }
+  const navigation = useNavigation()
 
-  const onForgotPassword = () =>{
-    console.warn("Créer un nouveau mot de passe");
+  const onSignUpPressed = () =>{
+    navigation.navigate('ConfirmEmail')
   }
 
   const onSigneIn= () =>{
-    console.warn("Se conecter");
+    navigation.navigate('SignIn')
   }
 
   const onTermOfUser = () =>{
@@ -52,7 +53,7 @@ const SignUp = () => {
           >
           <SafeAreaView style={styles.signupContainer}>
               <View style={styles.textContainer}>
-                <Text style={styles.text}> Créer un compte</Text>
+                <Text style={styles.text}>Créer un compte</Text>
               </View>
               <CustomInput 
                   placeholder={"Pseudo"}
@@ -79,14 +80,8 @@ const SignUp = () => {
                   secureText={true}
                   />  
                 <CustomButton
-                  text={"Se Connecter"}
-                  onPress={onSignPressed}
-                  />
-                
-                <CustomButton
-                  text={"Mot de passe oublié"}
-                  type={"SECOND"}
-                  onPress={onForgotPassword}
+                  text={"Créer un compte"}
+                  onPress={onSignUpPressed}
                   />
 
                 <SocialSignInButton />

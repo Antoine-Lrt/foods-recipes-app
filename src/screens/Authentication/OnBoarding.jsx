@@ -2,13 +2,15 @@ import React, { useRef } from 'react'
 import { Animated, Dimensions, ImageBackground, StyleSheet, View } from 'react-native'
 import image from '../../../assets/images/background.jpg'
 import Slide from '../../components/Slide'
+import { useNavigation } from '@react-navigation/native'
 
 
 
 const OnBoarding = () => {
 
-  const data = [
 
+  const data = [
+    
     {
       lighText: "Pour tout les ",
       boldText: "goûts",
@@ -45,6 +47,7 @@ const OnBoarding = () => {
   ]
 
   const scrollX = useRef(new Animated.Value(0)).current;
+
   const Indicator = ({scrollX}) => {
     return <View style={{position: 'absolute', bottom :50, flexDirection: 'row', }}>
      {data.map((_, i)=>{
@@ -69,10 +72,6 @@ const OnBoarding = () => {
     </View>
   }
 
-
-
-  
-
   const renderItem = ({item}) => (
     <Slide 
     lighText={item.lighText} 
@@ -82,8 +81,18 @@ const OnBoarding = () => {
     iconUrl={item.iconUrl}
     btnType={item.btnType}
     btnTxt={item.btnTxt}
+    btnOnPress={onPressedContinue}
     />
 ) 
+
+const onPressedContinue = () =>{
+  navigation.navigate('SignIn')
+}
+
+
+
+
+const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
