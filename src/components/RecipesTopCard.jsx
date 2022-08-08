@@ -5,12 +5,11 @@ import { ImageBackground } from 'react-native'
 // COSNTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
-const RecipesTopCard = ({title, txtInfos, imageUrl}) => {
+const RecipesTopCard = ({ txtInfos, imageUrl}) => {
   return (
     <TouchableOpacity >
       <ImageBackground source={{uri: imageUrl}} resizeMode='cover' style={styles.cardContainer} imageStyle={{borderRadius: 12, opacity: .6}} >
-        <Text style={styles.cardTitle}>{title}</Text>
-        <Text style={styles.cardInfos}>{txtInfos} </Text>
+        <Text style={styles.cardTitle}>{txtInfos}</Text>
       </ImageBackground>
     </TouchableOpacity>
   )
@@ -25,22 +24,20 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'grey',
-        borderRadius: 12
+        backgroundColor: GLOBAL.COLOR.BLACK,
+        borderRadius: 12,
+        shadowColor: 'black',
+        shadowOffset: {width:0, height: 3},
+        shadowOpacity: .3,
+        shadowRadius:5,
 
       },
        
       cardTitle: {
-        color: 'white',
-        fontSize: 30,
+        color: GLOBAL.COLOR.WHITE,
+        fontSize: GLOBAL.TEXT.H2,
         fontWeight: 'bold',
-        textTransform: 'uppercase'
-      },
-    
-      cardInfos: {
-        color: 'white',
-        fontSize: 10,
-        fontWeight: '300',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        textAlign:'center'
       },
 })

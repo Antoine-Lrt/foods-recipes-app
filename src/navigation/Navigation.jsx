@@ -12,6 +12,7 @@ import ConfirmEmail from '../screens/Authentication/ConfirmEmail'
 import ForgotPassword from '../screens/Authentication/ForgotPassword';
 import ResetPassword from '../screens/Authentication/ResetPassword'
 import TabBar from './TabBar';
+import RecipesDetails from '../screens/App/RecipesDetails';
 
 
 const Stack = createNativeStackNavigator()
@@ -27,6 +28,7 @@ const Navigation = () => {
         <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{gestureEnabled: false}} />
         <Stack.Screen name='ResetPassword' component={ResetPassword} options={{gestureEnabled: false}} />
         <Stack.Screen name='TabBar' component={TabBar} />
+        <Stack.Screen name='RecipesDetails' component={RecipesDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   )

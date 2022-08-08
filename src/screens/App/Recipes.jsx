@@ -7,6 +7,8 @@ import RecipesTopCardsCarousel from '../../components/RecipesTopCardsCarousel'
 import RecipesCard from '../../components/RecipesCard'
 import RecipesCardsList from '../../components/RecipesCardsList'
 
+
+
 const Recipes = () => {
   return (
     <SafeAreaView style={{alignItems: 'center',}}>

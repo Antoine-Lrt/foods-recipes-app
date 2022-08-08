@@ -1,5 +1,6 @@
 import { FlatList, StyleSheet, Text, View, Image, Dimensions } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 
 // DATA //
@@ -7,6 +8,7 @@ import data from '../data/data.json'
 
 // COMPONENTS //
 import RecipesCard from './RecipesCard'
+import Navigation from '../navigation/Navigation'
 
 const RecipesCardsList = () => {
 
@@ -15,12 +17,20 @@ const RecipesCardsList = () => {
 
     const screenWidth = Dimensions.get('window').width
 
+    const navigation = useNavigation()
+
+    const onPress = () => {
+      navigation.navigate('RecipesDetails')
+    }
+
     
     const renderItem = ({item}) => (
         <RecipesCard 
           title={item.title}
-          txtInfos={item.category}
+          category={item.category}
+          level={item.level}
           imageUrl={item.image}
+          onPressAction={onPress}
         />
 ) 
 

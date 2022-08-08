@@ -4,17 +4,21 @@ import React from 'react'
 // CONSTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
-const RecipesCard = ({title, txtInfos, imageUrl}) => {
+const RecipesCard = ({title, category, level, imageUrl, onPressAction}) => {
   
   return (
-    <TouchableOpacity style={styles.cardContainer}>
-        <View style={styles.cardImgContainer}>
-            <Image source={{uri: imageUrl}} style={styles.cardImg} />
-        </View>
-        <View style={styles.cardTextContainer}>
-            <Text style={styles.cardTitle}>{title}</Text>
-            <Text style={styles.cardInfos}>{txtInfos}</Text>
-        </View>
+    <TouchableOpacity 
+        style={styles.cardContainer}
+        onPress={onPressAction}
+    >
+          <View style={styles.cardImgContainer}>
+              <Image source={{uri: imageUrl}} style={styles.cardImg} />
+          </View>
+          <View style={styles.cardTextContainer}>
+              <Text style={styles.cardTitle}>{title}</Text>
+              <Text style={styles.cardInfosCategory}>{category}</Text>
+              <Text style={styles.cardInfosLevel}>{level}</Text>
+          </View>
     </TouchableOpacity>
   )
 }
@@ -46,20 +50,28 @@ const styles = StyleSheet.create({
       },
 
       cardImgContainer:{
+        color: GLOBAL.COLOR.BLACK,
 
       },
        
       cardTitle: {
-        color: 'black',
-        fontSize: 10,
+        fontSize: GLOBAL.TEXT.H3,
         fontWeight: 'bold',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        fontFamily: GLOBAL.TEXT.FONTFAMILY
       },
-    
-      cardInfos: {
-        color: 'black',
-        fontSize: 10,
-        fontWeight: '300',
-        textTransform: 'uppercase'
+      
+      cardInfosCategory:{
+        fontSize: GLOBAL.TEXT.TEXT
       },
+
+      cardInfosLevel:{
+        fontSize: GLOBAL.TEXT.TEXT,
+        fontStyle: 'italic'
+      }
+
+
+
+
+
 })
