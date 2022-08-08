@@ -15,7 +15,7 @@ const OnBoarding = () => {
       lighText: "Pour tout les ",
       boldText: "goûts",
       infosTitle : "Selon tes envies",
-      infosText: "Viandes, Poisson, Burger, Vegan... tu trouveras une recettes faites pour toi",
+      infosText: "Burger, Sushi, Salades... tu trouveras une recette faite pour toi",
       iconUrl: require("../../../assets/AnimationIcons/92072-foodie.json"),
       btnType: "SECOND",
     },
