@@ -24,7 +24,7 @@ const RecipesCardsList = ({}) => {
 
    <FlatList
         data={item}
-        keyExtractor={item => item.key}
+        keyExtractor={item => item.id}
         renderItem={({item}) =>(
           <RecipesCard 
           title={item.title}
@@ -32,9 +32,27 @@ const RecipesCardsList = ({}) => {
           level={item.level}
           imageUrl={item.image}
           onPressAction={() => 
-            navigation.navigate('RecipesDetails', item)
-            
-          }
+            navigation.navigate('RecipesDetails', {
+              itemInfo: item,
+
+              //INGREDIENTS//
+              itemIngredients: item.ingredients,
+              itemIngredientsName: item.ingredients.map((ingredient)=>
+                ingredient.name
+              ),
+              itemIngredientsQuantity: item.ingredients.map((ingredient)=>
+                ingredient.quantity
+              ),
+              //STEP//
+              itemStep: item.steps,
+              itemStepIndex: item.steps.map((step) =>
+                step.stepId
+              ),
+              itemStepDetails: item.steps.map((step) =>
+                step.details
+              ),
+
+            })}
         />
         )}
         contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:200}}

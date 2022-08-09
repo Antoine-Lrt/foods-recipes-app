@@ -4,7 +4,7 @@ import React from 'react'
 // CONSTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
-const RecipesCard = ({title, category, level, imageUrl, onPressAction}) => {
+const RecipesCard = ({title, category, level, imageUrl, onPressAction, ingredients, step}) => {
   
   return (
     <TouchableOpacity 

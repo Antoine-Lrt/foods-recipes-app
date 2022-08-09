@@ -1,52 +1,358 @@
 [
     
+
     {
         "id": "1",
-        "title": "Burger",
+        "title": "CheeseBurger",
         "category": "Cuisine Américaine",
         "image": "https://www.grillseeker.com/wp-content/uploads/2017/11/Butter-Burgers_f.jpg",
         "level": "Facile",
-        "time": 50
+        "time": 30,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "4",
+                "name": " Pain à Burger"
+            },
+            {
+                "quantity": "4 ",
+                "name": "Steack Hachés"
+            },
+            {
+                "quantity": "4 tranches ",
+                "name": "Fromage à Burger"
+            },
+            {
+                "quantity": "4 ",
+                "name": "Feuilles de laitue"
+            },
+            {
+                "quantity": "1",
+                "name": "Tomate"
+            },
+            {
+                "quantity": "1",
+                "name": "Oignons Rouge"
+            },
+            {
+                "quantity": "",
+                "name": "Ketchup"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Faites cuire les steaks hachés 4 minutes dans une poêle chaude avec un filet d'huile d'olive. Retournez les steaks et continuez la cuisson 2 minutes en assaisonnant à votre convenance, sel et poivre."
+            },
+            {
+                "stepId": 2,
+                "details": "Posez les tranches de fromage sur chaque steak et couvrez, puis poursuivez la cuisson encore 2 minutes à feu doux afin que le fromage fonde un peu."
+            },
+            {
+                "stepId": 3,
+                "details": "Disposez les steaks dans les pains à hamburgers, puis garnissez de rondelles de tomate préalablement coupées, de feuilles de laitue et d'oignon émincé. Dégustez votre cheeseburger maison aussitôt !"
+            }
+        ]
     },
     {
         "id": "2",
-        "title":"Pizza ",
+        "title":"Pizza Margherita ",
         "category":"Cuisune Italienne",
         "image": "https://divascancook.com/wp-content/uploads/2016/01/best-homemade-pizza-recipe.jpg.webp",
         "level": "Moyen",
-        "time": 30
-    },
-    {
+        "time": 15,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "1",
+                "name": " Pâte à pizza"
+            },
+            {
+                "quantity": "200 ml ",
+                "name": "Coulis de tomates"
+            },
+            {
+                "quantity": "2 boules ",
+                "name": "Mozzarella"
+            },
+            {
+                "quantity": "5",
+                "name": "Tomates cerises"
+            },
+            {
+                "quantity": "Quelques feuilles ",
+                "name": "Basilic frais"
+            }
+           
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Préchauffez le four à 240°C."
+            },
+            {
+                "stepId": 2,
+                "details": "Etalez la pâte à pizza (vous pouvez utiliser notre recette pour la réaliser vous-même) sur une plaque de cuisson recouverte de papier de cuisson, et étalez le coulis de tomate sur toute la surface."
+            },
+            {
+                "stepId": 3,
+                "details": "Coupez la mozzarella en fines tranches et disposez-les sur la pizza, puis ajoutez les tomates cerises coupées en 2."
+            },
+            {
+                "stepId": 4,
+                "details": "Enfournez pour 10 minutes en surveillant la cuisson, et déposez les feuilles de basilic avant de servir."
+            }
+        ]
+    },{
         "id": "3",
         "title": "Cuisses de grenouilles",
         "category": "Cuisine Française",
         "image": "https://www.academiedugout.fr/images/53927/1200-686/bistrot_allard_cuissesgrenouilleallard.jpg?poix=50&poiy=50",
         "level": "Difficile",
-        "time": 30
-    },
-    {
+        "time": 25,
+        "part": 2,
+        "ingredients": [
+            {
+                "quantity": 20,
+                "name": "Cuisses de grenouilles surgelées"
+            },
+            {
+                "quantity": "2 gousses",
+                "name": "Ail"
+            },
+            {
+                "quantity": "1 bouquet",
+                "name": "Persil"
+            },
+            {
+                "quantity": "30 g",
+                "name": "Farine"
+            },
+            {
+                "quantity": "20 g",
+                "name": "Beurre"
+            },
+            {
+                "quantity": "1 pincée",
+                "name": "Sel"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": " Décongelez les cuisses de grenouilles et épongez-les avec du papier absorbant."
+            },
+            {
+                "stepId": 2,
+                "details": "Déposez la farine dans une assiette et roulez les cuisses de grenouille dedans en tapotant légèrement pour enlever le surplus. Hachez finement l'ail et le persil."
+            },
+            {
+                "stepId": 3,
+                "details": "Faites chauffer le beurre dans une grande poêle jusqu'à ce qu'il commence à se colorer, ajoutez l'ail puis faites cuire les cuisses de grenouille environ 2 minutes de chaque côté, jusqu'à ce qu'elles soient bien dorées."
+            },
+            {
+                "stepId": 4,
+                "details": "Salez légèrement les cuisses de grenouille et parsemez de persil. Servez aussitôt."
+            }
+        ]
+    },{
         "id": "4",
         "title": "Bujitos",
         "category": "Cuisine Mexicaine",
         "image": "https://www.oldelpaso.fr/-/media/oep/france/new-recipe-images/kit-pour-burritos-original-hero.png",
         "level": "Moyen",
-        "time": 30
-    },
-    {
+        "time": 30,
+        "part": 6,
+        "ingredients": [
+            {
+                "quantity": 6,
+                "name": " Tortillas"
+            },
+            {
+                "quantity": "300 g",
+                "name": "Filet de bœuf"
+            },
+            {
+                "quantity": 2,
+                "name": "Cœurs de laitue"
+            },
+            {
+                "quantity": 2,
+                "name": "Poivrons Rouge"
+            },
+            {
+                "quantity": 2,
+                "name": "Oignons rouges"
+            },
+            {
+                "quantity": "Une conserve",
+                "name": "Maïs"
+            },
+            {
+                "quantity": "1 petit bouquet",
+                "name": "Coriandre fraîche"
+            },
+            {
+                "quantity": "3 cuillères à soupe",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": 1,
+                "name": "Petit piment rouge"
+            },
+            {
+                "quantity": "½ cuillère à café",
+                "name": "Graines de coriandre"
+            },
+            {
+                "quantity": "",
+                "name": "Sel, poivre"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Préchauffez le four à 90°C. Émincez la viande, les oignons épluchés ainsi que les poivrons lavés et épépinés. Ciselez ensuite les cœurs de laitues et la coriandre. Hachez finement le piment préalablement lavé et épépiné. Écrasez ensuite les graines de coriandre."
+            },
+            {
+                "stepId": 2,
+                "details": "Placez les tortillas les unes sur les autres avant de les envelopper d’une grande feuille de papier aluminium. Réchauffez-les ensuite au four."
+            },
+            {
+                "stepId": 3,
+                "details": "Faites chauffer l’huile d’olive dans une grande poêle. Faites revenir les graines de coriandre et le piment pendant 1 minute."
+            },
+            {
+                "stepId": 4,
+                "details": "Ajoutez ensuite la viande et laissez cuire à feu vif pendant 3 minutes. Assaisonnez avec du sel et du poivre."
+            },
+            {
+                "stepId": 5,
+                "details": "Étalez les tortillas sur un plan de travail. Garnissez-les de viande, de laitue, d’oignon, de maïs, de poivrons et coriandre ciselée."
+            },
+            {
+                "stepId": 6,
+                "details": "Servez aussitôt les burritos express."
+            }
+        ]
+    },{
         "id": "5",
         "title": "Pates à la bolognaise",
         "category": "Cuisune Italienne",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQkHb5CFy2Q8xqWdKgGyjMumgzOAaeUfOEMx43j2kj-tvU3HPrWK2ZGWWYWciYEBw9uc&usqp=CAU",
         "level": "Moyen",
-        "time": 20
-    },
-    {
+        "time": 35,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "400 g",
+                "name": " Spaghetti"
+            },
+            {
+                "quantity": "400 g",
+                "name": "Viande Hachés"
+            },
+            {
+                "quantity": "2",
+                "name": "Oignons"
+            },
+            {
+                "quantity": "1 boîte",
+                "name": "Tomates pelées"
+            },
+            {
+                "quantity": "1",
+                "name": "Carotte"
+            },
+            {
+                "quantity": "1 boîte",
+                "name": "Sauce Tomate"
+            },
+            {
+                "quantity": "1 gousse",
+                "name": "Ail"
+            },
+            {
+                "quantity": "2 cuillères à soupe",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": "2 branches",
+                "name": "Thym"
+            },
+            {
+                "quantity": "",
+                "name": "Fromage râpé"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Faites cuire les spaghetti dans de l'eau bouillante salée en fonction du temps indiqué sur le paquet. "
+            },
+            {
+                "stepId": 2,
+                "details": "Epluchez les oignons et l'ail puis émincez-les. Coupez les tomates pelées en petits morceaux et lavez, épluchez et coupez la carotte en dés."
+            },
+            {
+                "stepId": 3,
+                "details": "Dans une poêle, faites revenir un filet d'huile d'olive avec l'ail et les oignons pendant 2-3 minutes. Ajoutez les dés de carotte et laissez-les cuire pendant plusieurs minutes."
+            },
+            {
+                "stepId": 4,
+                "details": "Ajoutez la viande hachée et remuez jusqu'à ce que la viande soit cuite. Salez, poivrez. Mettez les morceaux de tomates pelées, les branches de thym et laissez mijoter à feu doux pendant 10 minutes. "
+            },
+            {
+                "stepId": 5,
+                "details": "Versez la sauce tomate et laissez encore mijoter pendant 10 minutes. Si besoin ajoutez un peu d'eau."
+            },
+            {
+                "stepId": 6,
+                "details": "Dans une assiette, mettez les pâtes puis la sauce et parsemez vos spaghetti bolognaise de fromage râpé. Servez aussitôt."
+            }
+        ]
+    },{
         "id": "6",
         "title": "Frites",
-        "category": "Cuisine Belge",
+        "category": "Cuisine Française",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXhTzZ_WYKSZhUI-IAziq_3iQIu2wmoH3lw&usqp=CAU",
         "level": "Facile",
-        "time": 55
+        "time": 55,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "1 kg",
+                "name": " Pommes de terre Bintje"
+            },
+            {
+                "quantity": "2 l ",
+                "name": "Huile de friture"
+            },
+            {
+                "quantity": "2 pincée ",
+                "name": "Sel"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Pelez et lavez les pommes de terre. Coupez-les en bâtonnets d'1cm de large, lavez-les de nouveau et séchez-les bien"
+            },
+            {
+                "stepId": 2,
+                "details": "Faites chauffer l'huile dans une marmite à 150°C. Plongez les frites 7 minutes. Faites plusieurs fournées pour éviter que les frites collent entre elles."
+            },
+            {
+                "stepId": 3,
+                "details": "Sortez les frites et mettez-les sur du papier absorbant et laissez-les refroidir."
+            },
+            {
+                "stepId": 4,
+                "details": "Chauffez l'huile à 190°C et plongez les frites une nouvelle fois pendant 3 minutes le temps de les faire dorer et de les rendre croustillantes. Servez aussitôt avec deux pincées de sel."
+            }
+        ]
     }
    
   ]
+
+  

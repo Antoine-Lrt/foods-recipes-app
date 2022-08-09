@@ -27,7 +27,7 @@ const Navigation = () => {
         <Stack.Screen name='ConfirmEmail' component={ConfirmEmail} options={{gestureEnabled: false}}/>
         <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{gestureEnabled: false}} />
         <Stack.Screen name='ResetPassword' component={ResetPassword} options={{gestureEnabled: false}} />
-        <Stack.Screen name='TabBar' component={TabBar} />
+        <Stack.Screen name='TabBar' component={TabBar}  />
         <Stack.Screen name='RecipesDetails' component={RecipesDetails} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -1,32 +1,90 @@
-import { StyleSheet, Text, View, Image, ImageBackground, ScrollView } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, ImageBackground, ScrollView, TouchableOpacity, FlatList } from 'react-native'
+import React, { useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { StatusBar } from 'react-native'
-// import data from '../../data/data.json'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft ,faHeart, faUser } from '@fortawesome/free-solid-svg-icons'
+import { useNavigation } from '@react-navigation/native'
+import { useRoute } from '@react-navigation/native'
 
 // COMPONENTS //
 import IngredientsCard from '../../components/IngredientsCard'
 import RecipesInfosTag from '../../components/RecipesInfosTag'
+import StepCard from '../../components/StepCard'
 
 // CONSTANTS //
-import GLOBAL from '../../constants/GLOBAL'
-import PreparationCard from '../../components/PreparationCard'
-import { useRoute } from '@react-navigation/native'
+import GLOBAL, { COLOR } from '../../constants/GLOBAL'
+
+// DATA //
+import data from '../../data/data.json'
+
 
 const RecipesDetails = ({}) => {
 
+ 
+
   const route = useRoute()
 
-  const {title, category, level, time , image} = route.params
+  const navigation = useNavigation()
+
+  const {itemInfo,itemIngredients,itemIngredientsQuantity,itemIngredientsName,itemStep,itemStepIndex,itemStepDetails} = route.params
+   console.log(itemIngredients);
+
+  
+ 
+
+  // CHANGE ICON COLOR WHEN ADD TO FAVORITES
+
+  const [colorIcon, setColorIcon] = useState(GLOBAL.COLOR.WHITE)
+
+  const changeIconColor = (colorIcon) => {
+    setColorIcon(colorIcon)
+  }
+  
+  const addToFavorite = () => {
+    if(colorIcon == GLOBAL.COLOR.WHITE) {
+      changeIconColor(GLOBAL.COLOR.FIRSTGREEN);
+      console.warn('Add favorites')
+    }
+   else {
+     changeIconColor(GLOBAL.COLOR.WHITE)
+     console.warn('Delete favorites')
+   }
+
+  }
+  
+
 
   return (
     <View style={styles.recipesDetailsContainer}>
       <StatusBar barStyle={'light-content'} />
         <ImageBackground 
-          source={{uri: image}} 
+          source={{uri: route.params.itemInfo.image}} 
           resizeMode="cover" 
           style={styles.cardImageContainer} 
           >
+          <View style={{ marginTop: 40, padding: 15, flexDirection:'row', justifyContent: 'space-between' }}>
+          <TouchableOpacity style={{width:30,}} onPress={() => navigation.goBack()}>
+            <FontAwesomeIcon 
+                      icon={faArrowLeft} 
+                      size={30}
+                      style={{
+                        color: GLOBAL.COLOR.WHITE,
+                        alignItems: 'center'
+                      }}                      
+                      />
+          </TouchableOpacity>
+          <TouchableOpacity style={{width:30,}} onPress={addToFavorite}>
+            <FontAwesomeIcon 
+                      icon={faHeart} 
+                      size={30}
+                      style={{
+                        color: colorIcon,
+                        alignItems: 'center'
+                      }}                      
+                      />
+          </TouchableOpacity>
+          </View>
             <LinearGradient
                     colors={['transparent','rgba(0,0,0,1)']}
                     style={styles.gradient}
@@ -34,61 +92,60 @@ const RecipesDetails = ({}) => {
                     end={{ x: 0, y: .8 }}
              />
             <View style={styles.cardImageText}>
-              <Text style={styles.cardImageTitle}>{title}</Text>
+              <Text style={styles.cardImageTitle}>{route.params.itemInfo.title}</Text>
             </View>
         </ImageBackground>
         <ScrollView style={styles.recipesInfosContainer}>
           <View style={styles.recipesInfos}>
             <RecipesInfosTag 
                 details={"Catégorie"}
-                text={category}
+                text={route.params.itemInfo.category}
             />
             <RecipesInfosTag 
                 details={"Difficulté"}
-                text={level}
+                text={route.params.itemInfo.level}
             />
             <RecipesInfosTag 
                 details={"Temps"}
-                text={time}
+                text={route.params.itemInfo.time}
                 time={"min"}
                 
+            />
+            <RecipesInfosTag 
+                details={"Parts"}
+                text={route.params.itemInfo.part}
+
             />
           </View>
            
            {/* INGREDIENTS  */}
               <Text style={styles.recipesDetailsTitle}>Ingrédients</Text>
-            <View style={{alignItems: 'center'}}>
-              <IngredientsCard 
-                name={'Buns'}
-                quantity={2}
-              />
-              <IngredientsCard 
-                name={'Steack Hachés'}
-                quantity={2}
-              />
-              <IngredientsCard 
-                name={'Oignons'}
-                quantity={'2'}
-              />
-              <IngredientsCard 
-                name={'Cheddar'}
-                quantity={'2 tranches'}
-              />
-              <IngredientsCard 
-                name={'Bacon'}
-                quantity={'6 tranches'}
-              />
-              <IngredientsCard 
-                name={'Sauce barbecue'}
-              />
+                <View style={{alignItems: 'center'}}>
+                    {itemIngredients.map((currIng, index) => (
+                     <IngredientsCard 
+                        name={itemIngredientsName[+index]}
+                        quantity={itemIngredientsQuantity[+index]}
+                    />
 
-            </View> 
+                    ))}
+                      
+                </View> 
             {/* RECIPES  */}
             <Text style={styles.recipesDetailsTitle}>Préparation</Text>
-              <View style={{alignItems: 'center'}}>
-                <PreparationCard 
-                 
-                />
+              <View style={{alignItems: 'center',}}>
+                  <View  style={styles.stepCardContainer}>
+                  {itemStep.map((currIng, index) => (
+                        <StepCard
+                            stepIndex={itemStepIndex[+index]}
+                            stepText={itemStepDetails[+index]}
+                        />
+                        ))}
+
+                  </View>
+                    
+               
+               
+              
                 
 
               </View>
@@ -97,6 +154,8 @@ const RecipesDetails = ({}) => {
     </View>
   )
 }
+
+
 
 export default RecipesDetails
 
@@ -111,7 +170,7 @@ const styles = StyleSheet.create({
   cardImageContainer: {
     height: 350,
     padding: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     backgroundColor:'black'
   },
 
@@ -127,7 +186,7 @@ const styles = StyleSheet.create({
 
   cardImageTitle: {
     color:GLOBAL.COLOR.WHITE,
-    fontSize: 50,
+    fontSize: 45,
     fontWeight: 'bold',
     textTransform: 'uppercase'
   },
@@ -154,4 +213,19 @@ const styles = StyleSheet.create({
     fontFamily: GLOBAL.TEXT.FONTFAMILY,
     padding: 15
   },
+
+  // STEP //
+
+  stepCardContainer:{
+    padding : 10,
+    width: 370,
+    backgroundColor: 'white',
+    alignItems:'center',
+    borderRadius:12,
+    shadowColor: 'black',
+    shadowOffset: {width:0, height: 3},
+    shadowOpacity: .3,
+    shadowRadius:5,
+    marginBottom: 30
+  }
 })
