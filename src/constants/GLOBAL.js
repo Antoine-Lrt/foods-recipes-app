@@ -15,6 +15,7 @@ module.exports = {
       H2: 30,
       H3: 15,
       TEXT: 13,
+      SMALL_TEXT: 9,
       FONTFAMILY : 'Futura'
     }
   };

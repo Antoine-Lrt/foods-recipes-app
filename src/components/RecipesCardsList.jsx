@@ -8,9 +8,9 @@ import data from '../data/data.json'
 
 // COMPONENTS //
 import RecipesCard from './RecipesCard'
-import Navigation from '../navigation/Navigation'
 
-const RecipesCardsList = () => {
+
+const RecipesCardsList = ({}) => {
 
 
     const item = data
@@ -19,27 +19,24 @@ const RecipesCardsList = () => {
 
     const navigation = useNavigation()
 
-    const onPress = () => {
-      navigation.navigate('RecipesDetails')
-    }
-
-    
-    const renderItem = ({item}) => (
-        <RecipesCard 
-          title={item.title}
-          category={item.category}
-          level={item.level}
-          imageUrl={item.image}
-          onPressAction={onPress}
-        />
-) 
 
   return (
 
    <FlatList
         data={item}
         keyExtractor={item => item.key}
-        renderItem={renderItem}
+        renderItem={({item}) =>(
+          <RecipesCard 
+          title={item.title}
+          category={item.category}
+          level={item.level}
+          imageUrl={item.image}
+          onPressAction={() => 
+            navigation.navigate('RecipesDetails', item)
+            
+          }
+        />
+        )}
         contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:200}}
     />
 

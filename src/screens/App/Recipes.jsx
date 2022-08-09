@@ -4,7 +4,6 @@ import React from 'react'
 // COMPONENTS //
 import CustomSearchBar from '../../components/CustomSearchBar'
 import RecipesTopCardsCarousel from '../../components/RecipesTopCardsCarousel'
-import RecipesCard from '../../components/RecipesCard'
 import RecipesCardsList from '../../components/RecipesCardsList'
 
 

@@ -6,13 +6,19 @@ import { StatusBar } from 'react-native'
 
 // COMPONENTS //
 import IngredientsCard from '../../components/IngredientsCard'
+import RecipesInfosTag from '../../components/RecipesInfosTag'
 
 // CONSTANTS //
 import GLOBAL from '../../constants/GLOBAL'
 import PreparationCard from '../../components/PreparationCard'
+import { useRoute } from '@react-navigation/native'
 
-const RecipesDetails = () => {
-    const image = 'https://www.grillseeker.com/wp-content/uploads/2017/11/Butter-Burgers_f.jpg'
+const RecipesDetails = ({}) => {
+
+  const route = useRoute()
+
+  const {title, category, level, time , image} = route.params
+
   return (
     <View style={styles.recipesDetailsContainer}>
       <StatusBar barStyle={'light-content'} />
@@ -28,13 +34,25 @@ const RecipesDetails = () => {
                     end={{ x: 0, y: .8 }}
              />
             <View style={styles.cardImageText}>
-              <Text style={styles.cardImageTitle}>BURGER</Text>
+              <Text style={styles.cardImageTitle}>{title}</Text>
             </View>
         </ImageBackground>
         <ScrollView style={styles.recipesInfosContainer}>
           <View style={styles.recipesInfos}>
-              <Text style={styles.recipesInfosTxt}>Temps : 50 mins </Text>
-              <Text style={styles.recipesInfosTxt}>Difficulté: Facile </Text>
+            <RecipesInfosTag 
+                details={"Catégorie"}
+                text={category}
+            />
+            <RecipesInfosTag 
+                details={"Difficulté"}
+                text={level}
+            />
+            <RecipesInfosTag 
+                details={"Temps"}
+                text={time}
+                time={"min"}
+                
+            />
           </View>
            
            {/* INGREDIENTS  */}
@@ -125,14 +143,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     
   },
-  
-  recipesInfosTxt: {
-    color:GLOBAL.COLOR.BLACK,
-    fontSize: GLOBAL.TEXT.TEXT,
-    textTransform: 'uppercase',
-    fontFamily: GLOBAL.TEXT.FONTFAMILY,
-    fontWeight: '500',
-  },
+
+ 
+
 
   // INGREDIENTS //
 
