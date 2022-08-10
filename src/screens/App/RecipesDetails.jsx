@@ -15,8 +15,7 @@ import StepCard from '../../components/StepCard'
 // CONSTANTS //
 import GLOBAL, { COLOR } from '../../constants/GLOBAL'
 
-// DATA //
-import data from '../../data/data.json'
+
 
 
 const RecipesDetails = ({}) => {

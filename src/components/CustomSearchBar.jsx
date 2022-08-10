@@ -3,9 +3,10 @@ import React, {useState} from 'react'
 import {SearchBar } from '@rneui/base';
 
 import GLOBAL from '../constants/GLOBAL'
-import { text } from '@fortawesome/fontawesome-svg-core';
 
-const CustomSearchBar = () => {
+
+
+const CustomSearchBar = ({value, placeholder, onChangeText}) => {
 
     const [search, setSearch] = useState("");
     const updateSearch = (search) => {
@@ -22,17 +23,15 @@ const CustomSearchBar = () => {
       rightIconContainerStyle={styles.searchIcons}
       lightTheme
       loadingProps={{}}
-      onChangeText={newVal => setSearch(newVal)}
+      onChangeText={onChangeText}
       onClearText={() => console.log(onClearText())}
-      placeholder="Recherche"
+      placeholder={placeholder}
       placeholderTextColor ={GLOBAL.COLOR.GREY}
       showCancel = 'false'
       cancelButtonTitle=""
       cancelButtonProps={{}}
       onCancel={() => console.log(onCancel())}
-      value={search}
-      onChange={text}
-        
+      value={value}    
       />
 
      
