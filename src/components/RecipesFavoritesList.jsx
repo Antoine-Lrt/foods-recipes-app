@@ -5,17 +5,18 @@ import { useNavigation } from '@react-navigation/native'
 
 
 // DATA //
-import data from '../data/data.json'
+import data from '../data/fav.json'
 
 // COMPONENTS //
-import RecipesCard from './RecipesCard'
+import RecipesFavoriteCard from './RecipesFavoriteCard'
 import CustomSearchBar from './CustomSearchBar'
 import RecipesTopCardsCarousel from './RecipesTopCardsCarousel'
 
 
 
 
-const RecipesCardsList = ({}) => {
+
+const RecipesFavoritesList = ({}) => {
 
 
   // DIMENSION //
@@ -53,16 +54,14 @@ const RecipesCardsList = ({}) => {
           searchRecipe(text)
           setSearch(text)
         }} 
-
         />
-    <RecipesTopCardsCarousel />
+        
     <FlatList
           data={updated}
           keyExtractor={item => item.id}
           renderItem={({item}) =>(
-            <RecipesCard 
+            <RecipesFavoriteCard
             title={item.title}
-            category={item.category}
             level={item.level}
             imageUrl={item.image}
             onPressAction={() => 
@@ -89,6 +88,7 @@ const RecipesCardsList = ({}) => {
               })}
           />
           )}
+          numColumns={"2"}
           contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:260}}
       />
     </View>
@@ -96,6 +96,6 @@ const RecipesCardsList = ({}) => {
   )
 }
 
-export default RecipesCardsList
+export default RecipesFavoritesList
 
 const styles = StyleSheet.create({})

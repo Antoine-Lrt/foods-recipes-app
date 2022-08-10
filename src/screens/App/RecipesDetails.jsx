@@ -120,7 +120,8 @@ const RecipesDetails = ({}) => {
            {/* INGREDIENTS  */}
               <Text style={styles.recipesDetailsTitle}>Ingrédients</Text>
                 <View style={{alignItems: 'center'}}>
-                    {itemIngredients.map((currIng, index) => (
+                 {/* // ... && ...map : check we have data to display */}
+                    {itemIngredients && itemIngredients.map((currIng, index) => (
                      <IngredientsCard 
                         name={itemIngredientsName[+index]}
                         quantity={itemIngredientsQuantity[+index]}
@@ -133,7 +134,8 @@ const RecipesDetails = ({}) => {
             <Text style={styles.recipesDetailsTitle}>Préparation</Text>
               <View style={{alignItems: 'center',}}>
                   <View  style={styles.stepCardContainer}>
-                  {itemStep.map((currIng, index) => (
+                  {/* // ... && ...map : check we have data to display */}
+                  {itemStep && itemStep.map((currIng, index) => (
                         <StepCard
                             stepIndex={itemStepIndex[+index]}
                             stepText={itemStepDetails[+index]}

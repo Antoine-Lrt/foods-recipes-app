@@ -2,7 +2,7 @@
     
 
     {
-        "id": "1",
+        "id": 1,
         "title": "CheeseBurger",
         "category": "Cuisine Américaine",
         "image": "https://www.grillseeker.com/wp-content/uploads/2017/11/Butter-Burgers_f.jpg",
@@ -55,7 +55,7 @@
         ]
     },
     {
-        "id": "2",
+        "id": 2,
         "title":"Pizza Margherita ",
         "category":"Cuisune Italienne",
         "image": "https://divascancook.com/wp-content/uploads/2016/01/best-homemade-pizza-recipe.jpg.webp",
@@ -103,8 +103,9 @@
                 "details": "Enfournez pour 10 minutes en surveillant la cuisson, et déposez les feuilles de basilic avant de servir."
             }
         ]
-    },{
-        "id": "3",
+    },
+    {
+        "id": 3,
         "title": "Cuisses de grenouilles",
         "category": "Cuisine Française",
         "image": "https://www.academiedugout.fr/images/53927/1200-686/bistrot_allard_cuissesgrenouilleallard.jpg?poix=50&poiy=50",
@@ -155,8 +156,9 @@
                 "details": "Salez légèrement les cuisses de grenouille et parsemez de persil. Servez aussitôt."
             }
         ]
-    },{
-        "id": "4",
+    },
+    {
+        "id": 4,
         "title": "Bujitos",
         "category": "Cuisine Mexicaine",
         "image": "https://www.oldelpaso.fr/-/media/oep/france/new-recipe-images/kit-pour-burritos-original-hero.png",
@@ -235,8 +237,9 @@
                 "details": "Servez aussitôt les burritos express."
             }
         ]
-    },{
-        "id": "5",
+    },
+    {
+        "id": 5,
         "title": "Pates à la bolognaise",
         "category": "Cuisune Italienne",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQkHb5CFy2Q8xqWdKgGyjMumgzOAaeUfOEMx43j2kj-tvU3HPrWK2ZGWWYWciYEBw9uc&usqp=CAU",
@@ -311,8 +314,9 @@
                 "details": "Dans une assiette, mettez les pâtes puis la sauce et parsemez vos spaghetti bolognaise de fromage râpé. Servez aussitôt."
             }
         ]
-    },{
-        "id": "6",
+    },
+    {
+        "id": 6,
         "title": "Frites",
         "category": "Cuisine Française",
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXhTzZ_WYKSZhUI-IAziq_3iQIu2wmoH3lw&usqp=CAU",
@@ -351,7 +355,125 @@
                 "details": "Chauffez l'huile à 190°C et plongez les frites une nouvelle fois pendant 3 minutes le temps de les faire dorer et de les rendre croustillantes. Servez aussitôt avec deux pincées de sel."
             }
         ]
+    },
+    {
+        "id": 7,
+        "title": "Spookie",
+        "category": "Dessert",
+        "image": "https://static.youmiam.com/images/recipe/200x210/cookie-moelleux-au-speculos-2417809?placeholder=web_recipe&sig=1b61df7720c5908dae12d7f8bc641c0168468c3f&v2",
+        "level": "Facile",
+        "time": 15,
+        "part": 1,
+        "ingredients": [
+            {
+                "quantity": "35 g",
+                "name": " Farine"
+            },
+            {
+                "quantity": "35 g",
+                "name": "Pâte de Speculos"
+            },
+            {
+                "quantity": "20 g  ",
+                "name": "Lait"
+            },
+            {
+                "quantity": "5 g  ",
+                "name": "Huile de coco"
+            },
+            {
+                "quantity": "10 g  ",
+                "name": "Pépites de chocolat"
+            },
+            {
+                "quantity": "1/2 c.à.s  ",
+                "name": "Levure chimique"
+            },
+            {
+                "quantity": "1/2 ",
+                "name": "Spéculos"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Préchauffer le four à 180 degrés."
+            },
+            {
+                "stepId": 2,
+                "details": "Faire fondre la pâte de spéculos et l’huile de coco au micro-ondes ou au bain marie quelques secondes."
+            },
+            {
+                "stepId": 3,
+                "details": "Mélanger tous les ingrédients ensembles."
+            },
+            {
+                "stepId": 4,
+                "details": "Former une boule et l’aplatir un peu."
+            },
+            {
+                "stepId": 5,
+                "details": "Ajouter un peu de chocolat sur le dessus et du biscuit spéculos et enfourner pour 12 / 15 minutes. Si vous voulez qu’il soit un peu mi-cuir et bien fondant je vois conseille de surveiller la cuisson et de jeter un coup d’œil après 10min !"
+            },
+            {
+                "stepId": 6,
+                "details": "Laisser refroidir et déguster !"
+            }
+        ]
+        
+    },
+    {
+        "id": 8,
+        "title": "Crêpes Bretonne",
+        "category": "Dessert",
+        "country": "Cuisine Française",
+        "image": "https://assets.afcdn.com/recipe/20140103/61800_w1200h1531c1cx1000cy1276.webp",
+        "level": "Facile",
+        "time": 35,
+        "part":"",
+        "ingredients": [
+            {
+                "quantity": "250 g",
+                "name": "Farine de blé"
+            },
+            {
+                "quantity": "70 g",
+                "name": "Sucre Roux"
+            },
+            {
+                "quantity": "1 c.à.s  ",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": "1 c.à.s  ",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": "1/2 l",
+                "name": "Lait"
+            },
+            {
+                "quantity": "1 c.à.s  ",
+                "name": "Rhum et Sucre Vanillé"
+            },
+            {
+                "quantity": "2",
+                "name": "Oeufs"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Mélanger tous les ingrédients pour faire une pâte à crêpes."
+            },
+            {
+                "stepId": 2,
+                "details": "Utiliser une crêpière."
+            }
+        ]
     }
+    
+    
    
   ]
 

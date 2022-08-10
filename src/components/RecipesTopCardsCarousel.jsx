@@ -23,7 +23,7 @@ const RecipesTopCardsCarousel = () => {
 
 
   return (
-  <View style={{height :'20%'}} >
+  <View style={{height :'15%',}} >
    <FlatList
           data={item}
           renderItem={renderItem}

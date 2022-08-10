@@ -1,0 +1,230 @@
+[
+    
+
+    {
+        "id": 1,
+        "title": "CheeseBurger",
+        "category": "Cuisine Américaine",
+        "image": "https://www.grillseeker.com/wp-content/uploads/2017/11/Butter-Burgers_f.jpg",
+        "level": "Facile",
+        "time": 30,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "4",
+                "name": " Pain à Burger"
+            },
+            {
+                "quantity": "4 ",
+                "name": "Steack Hachés"
+            },
+            {
+                "quantity": "4 tranches ",
+                "name": "Fromage à Burger"
+            },
+            {
+                "quantity": "4 ",
+                "name": "Feuilles de laitue"
+            },
+            {
+                "quantity": "1",
+                "name": "Tomate"
+            },
+            {
+                "quantity": "1",
+                "name": "Oignons Rouge"
+            },
+            {
+                "quantity": "",
+                "name": "Ketchup"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Faites cuire les steaks hachés 4 minutes dans une poêle chaude avec un filet d'huile d'olive. Retournez les steaks et continuez la cuisson 2 minutes en assaisonnant à votre convenance, sel et poivre."
+            },
+            {
+                "stepId": 2,
+                "details": "Posez les tranches de fromage sur chaque steak et couvrez, puis poursuivez la cuisson encore 2 minutes à feu doux afin que le fromage fonde un peu."
+            },
+            {
+                "stepId": 3,
+                "details": "Disposez les steaks dans les pains à hamburgers, puis garnissez de rondelles de tomate préalablement coupées, de feuilles de laitue et d'oignon émincé. Dégustez votre cheeseburger maison aussitôt !"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Pates à la bolognaise",
+        "category": "Cuisune Italienne",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQkHb5CFy2Q8xqWdKgGyjMumgzOAaeUfOEMx43j2kj-tvU3HPrWK2ZGWWYWciYEBw9uc&usqp=CAU",
+        "level": "Moyen",
+        "time": 35,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "400 g",
+                "name": " Spaghetti"
+            },
+            {
+                "quantity": "400 g",
+                "name": "Viande Hachés"
+            },
+            {
+                "quantity": "2",
+                "name": "Oignons"
+            },
+            {
+                "quantity": "1 boîte",
+                "name": "Tomates pelées"
+            },
+            {
+                "quantity": "1",
+                "name": "Carotte"
+            },
+            {
+                "quantity": "1 boîte",
+                "name": "Sauce Tomate"
+            },
+            {
+                "quantity": "1 gousse",
+                "name": "Ail"
+            },
+            {
+                "quantity": "2 cuillères à soupe",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": "2 branches",
+                "name": "Thym"
+            },
+            {
+                "quantity": "",
+                "name": "Fromage râpé"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Faites cuire les spaghetti dans de l'eau bouillante salée en fonction du temps indiqué sur le paquet. "
+            },
+            {
+                "stepId": 2,
+                "details": "Epluchez les oignons et l'ail puis émincez-les. Coupez les tomates pelées en petits morceaux et lavez, épluchez et coupez la carotte en dés."
+            },
+            {
+                "stepId": 3,
+                "details": "Dans une poêle, faites revenir un filet d'huile d'olive avec l'ail et les oignons pendant 2-3 minutes. Ajoutez les dés de carotte et laissez-les cuire pendant plusieurs minutes."
+            },
+            {
+                "stepId": 4,
+                "details": "Ajoutez la viande hachée et remuez jusqu'à ce que la viande soit cuite. Salez, poivrez. Mettez les morceaux de tomates pelées, les branches de thym et laissez mijoter à feu doux pendant 10 minutes. "
+            },
+            {
+                "stepId": 5,
+                "details": "Versez la sauce tomate et laissez encore mijoter pendant 10 minutes. Si besoin ajoutez un peu d'eau."
+            },
+            {
+                "stepId": 6,
+                "details": "Dans une assiette, mettez les pâtes puis la sauce et parsemez vos spaghetti bolognaise de fromage râpé. Servez aussitôt."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Frites",
+        "category": "Cuisine Française",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYXhTzZ_WYKSZhUI-IAziq_3iQIu2wmoH3lw&usqp=CAU",
+        "level": "Facile",
+        "time": 55,
+        "part": 4,
+        "ingredients": [
+            {
+                "quantity": "1 kg",
+                "name": " Pommes de terre Bintje"
+            },
+            {
+                "quantity": "2 l ",
+                "name": "Huile de friture"
+            },
+            {
+                "quantity": "2 pincée ",
+                "name": "Sel"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Pelez et lavez les pommes de terre. Coupez-les en bâtonnets d'1cm de large, lavez-les de nouveau et séchez-les bien"
+            },
+            {
+                "stepId": 2,
+                "details": "Faites chauffer l'huile dans une marmite à 150°C. Plongez les frites 7 minutes. Faites plusieurs fournées pour éviter que les frites collent entre elles."
+            },
+            {
+                "stepId": 3,
+                "details": "Sortez les frites et mettez-les sur du papier absorbant et laissez-les refroidir."
+            },
+            {
+                "stepId": 4,
+                "details": "Chauffez l'huile à 190°C et plongez les frites une nouvelle fois pendant 3 minutes le temps de les faire dorer et de les rendre croustillantes. Servez aussitôt avec deux pincées de sel."
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Crêpes Bretonne",
+        "category": "Dessert",
+        "country": "Cuisine Française",
+        "image": "https://assets.afcdn.com/recipe/20140103/61800_w1200h1531c1cx1000cy1276.webp",
+        "level": "Facile",
+        "time": 35,
+        "part":"",
+        "ingredients": [
+            {
+                "quantity": "250 g",
+                "name": "Farine de blé"
+            },
+            {
+                "quantity": "70 g",
+                "name": "Sucre Roux"
+            },
+            {
+                "quantity": "1 c.à.s  ",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": "1 c.à.s  ",
+                "name": "Huile d’olive"
+            },
+            {
+                "quantity": "1/2 l",
+                "name": "Lait"
+            },
+            {
+                "quantity": "1 c.à.s  ",
+                "name": "Rhum et Sucre Vanillé"
+            },
+            {
+                "quantity": "2",
+                "name": "Oeufs"
+            }
+        ],
+        "steps": [
+            {
+                "stepId": 1,
+                "details": "Mélanger tous les ingrédients pour faire une pâte à crêpes."
+            },
+            {
+                "stepId": 2,
+                "details": "Utiliser une crêpière."
+            }
+        ]
+    }
+    
+    
+   
+  ]
+
+  

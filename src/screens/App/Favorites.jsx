@@ -1,10 +1,19 @@
-import { StyleSheet, Text, SafeAreaView } from 'react-native'
+import { StyleSheet, Text, SafeAreaView, StatusBar } from 'react-native'
 import React from 'react'
 
+// COMPONENTS //
+
+import CustomScreenHeader from '../../components/CustomScreenHeader'
+import RecipesFavoritesList from '../../components/RecipesFavoritesList'
 const Favorites = () => {
   return (
-    <SafeAreaView>
-      <Text>Favoris</Text>
+    <SafeAreaView style={{alignItems: 'center', justifyContent: 'space-between',}}>
+      <StatusBar barStyle={'dark-content'} />
+      <CustomScreenHeader
+        text1={"Mes"}
+        text2={"Favoris"} 
+      />
+      <RecipesFavoritesList />
     </SafeAreaView>
   )
 }

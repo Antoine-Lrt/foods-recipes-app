@@ -19,9 +19,9 @@ export default RecipesTopCard
 
 const styles = StyleSheet.create({
     cardContainer: { 
-        width: 250,
-        height: 150,
-        marginHorizontal: 10,
+        width: 150,
+        height: 100,
+        marginHorizontal: 9,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: GLOBAL.COLOR.BLACK,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
        
       cardTitle: {
         color: GLOBAL.COLOR.WHITE,
-        fontSize: GLOBAL.TEXT.H2,
+        fontSize: GLOBAL.TEXT.TEXT,
         fontWeight: 'bold',
         textTransform: 'uppercase',
         textAlign:'center'

@@ -1,38 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Dimensions } from 'react-native'
 import React, {useState} from 'react'
 import {SearchBar } from '@rneui/base';
 
+// DIMENSION //
+const screenWidth = Dimensions.get('window').width
+
+// CONSTATNTS //
 import GLOBAL from '../constants/GLOBAL'
 
 
 
 const CustomSearchBar = ({value, placeholder, onChangeText}) => {
 
-    const [search, setSearch] = useState("");
-    const updateSearch = (search) => {
-      setSearch(search);
-    };
+    
 
   return (
-    <SearchBar 
-      platform="default"
-      containerStyle={styles.searchContainer}
-      inputContainerStyle={styles.searchInputContainer}
-      inputStyle={styles.searchInput}
-      leftIconContainerStyle={styles.searchIcons}
-      rightIconContainerStyle={styles.searchIcons}
-      lightTheme
-      loadingProps={{}}
-      onChangeText={onChangeText}
-      onClearText={() => console.log(onClearText())}
-      placeholder={placeholder}
-      placeholderTextColor ={GLOBAL.COLOR.GREY}
-      showCancel = 'false'
-      cancelButtonTitle=""
-      cancelButtonProps={{}}
-      onCancel={() => console.log(onCancel())}
-      value={value}    
-      />
+    <View style={{alignItems:'center', }}>
+      <SearchBar 
+        platform="default"
+        containerStyle={styles.searchContainer}
+        inputContainerStyle={styles.searchInputContainer}
+        inputStyle={styles.searchInput}
+        leftIconContainerStyle={styles.searchIcons}
+        rightIconContainerStyle={styles.searchIcons}
+        onChangeText={onChangeText}
+        onClearText={() => console.log(onClearText())}
+        placeholder={placeholder}
+        placeholderTextColor ={GLOBAL.COLOR.GREY}
+        showCancel = {false}
+        cancelButtonTitle="hello"
+        onCancel={() => console.log(onCancel())}
+        value={value}    
+        />
+    </View>
 
      
 
@@ -47,21 +47,20 @@ const styles = StyleSheet.create({
     backgroundColor: GLOBAL.COLOR.BACKGROUND,
     borderBottomWidth: 0,
     borderTopWidth: 0,
-    alignSelf: 'center'
+    width: screenWidth,
+    padding:15
+    
     
    },
 
   searchInputContainer: {
-    borderRadius: 40,
+    borderRadius: 10,
     backgroundColor: GLOBAL.COLOR.WHITE,
-    height: 30,
-    width: '90%'
-  
     
   },
 
   searchInput: {
-    fontSize: 15
+    fontSize: GLOBAL.TEXT.H3
   },
 
   searchIcons: {
