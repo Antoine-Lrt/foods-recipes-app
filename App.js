@@ -24,11 +24,6 @@ export default function App() {
   return (
     <View style={styles.root}>
       <Navigation />
-      {/* <ResetPassword /> */}
-      {/* <ConfirmeEmail /> */}
-      {/* <SignUp />  */}
-      {/* <SignIn /> */}
-      {/* <AuthenticationNavigator /> */}
     </View>
   );
 }

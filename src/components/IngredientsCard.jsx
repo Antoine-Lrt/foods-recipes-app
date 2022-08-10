@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
       },
 
       ingredientsQuantity:{
-        color: GLOBAL.COLOR.FIRSTGREEN,
+        color: GLOBAL.COLOR.FIRSTCOLOR,
         fontWeight: 'bold',
       }
       

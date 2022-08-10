@@ -4,10 +4,9 @@ module.exports = {
       WHITE: '#FFF',
       BLACK: '#0f2029',
       GREY: '#dad7cd',
-      FIRSTGREEN: '#6a994e',
-      SECONDGREEN: '#d3eb74',
-      THIRDGREEN: '#E5ECAF',
-      LASTGREEN: '#F6F9E4'
+      FIRSTCOLOR: '#6a994e',
+      SECONDCOLOR: '#d3eb74',
+      THIRDCOLOR: '#E5ECAF',
     },
 
     TEXT:{
@@ -15,7 +14,7 @@ module.exports = {
       H2: 30,
       H3: 15,
       TEXT: 13,
-      SMALL_TEXT: 9,
+      SMALL_TEXT: 11,
       FONTFAMILY : 'Futura'
     }
   };

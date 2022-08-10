@@ -37,16 +37,19 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         alignItems:'center',
         justifyContent: 'center',
-        backgroundColor: GLOBAL.COLOR.FIRSTGREEN
-        
-
+        backgroundColor: GLOBAL.COLOR.FIRSTCOLOR
     },
 
-    stepText:{
-        flex: 1,flexWrap: 'wrap',
-        fontSize: GLOBAL.TEXT.TEXT,
-        fontFamily: GLOBAL.TEXT.FONTFAMILY
-    }
+      stepIndexTxt:{
+        color: GLOBAL.COLOR.WHITE
+      },
+
+      stepText:{
+          flex: 1,flexWrap: 'wrap',
+          fontSize: GLOBAL.TEXT.TEXT,
+          fontFamily: GLOBAL.TEXT.FONTFAMILY,
+          color: GLOBAL.COLOR.BLACK
+      }
 
 
 

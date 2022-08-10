@@ -28,11 +28,13 @@ const styles = StyleSheet.create({
     
       recipeScreenText1:{
         fontSize:GLOBAL.TEXT.H2,
-        letterSpacing:1.2
+        letterSpacing:1.2,
+        fontWeight: 'bold',
       },
       recipeScreenText2:{
         fontWeight: 'bold',
         fontSize:GLOBAL.TEXT.H1,
+        color: GLOBAL.COLOR.FIRSTCOLOR
         
       }
 })

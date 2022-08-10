@@ -14,7 +14,6 @@ import { faBowlFood ,faHeart, faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 // CONSTANTS 
-
 import GLOBAL from '../constants/GLOBAL'
 
 const TabBar = () => {
@@ -37,7 +36,7 @@ const TabBar = () => {
                 icon={faBowlFood} 
                 size={20}
                 style={{
-                  color: focused ? GLOBAL.COLOR.FIRSTGREEN: GLOBAL.COLOR.GREY
+                  color: focused ? GLOBAL.COLOR.FIRSTCOLOR: GLOBAL.COLOR.GREY
                 }}/>
                 <View style={{backgroundColor: 'red'}}>
 
@@ -46,8 +45,8 @@ const TabBar = () => {
                 {/* <Lottie source={require('../../assets/AnimationIcons/favorite-heart.json')} style={{}} loop /> */}
              <Text style={{
                 marginTop: 3,
-                fontSize: 10,
-                color: focused ? GLOBAL.COLOR.FIRSTGREEN : GLOBAL.COLOR.GREY
+                fontSize: GLOBAL.TEXT.SMALL_TEXT,
+                color: focused ? GLOBAL.COLOR.FIRSTCOLOR : GLOBAL.COLOR.GREY
               }}>Recettes</Text>
 
                 </View>
@@ -65,12 +64,12 @@ const TabBar = () => {
                 icon={faHeart} 
                 size={20}
                 style={{
-                  color: focused ? GLOBAL.COLOR.FIRSTGREEN : GLOBAL.COLOR.GREY
+                  color: focused ? GLOBAL.COLOR.FIRSTCOLOR : GLOBAL.COLOR.GREY
                 }}/>
              <Text style={{
                 marginTop: 3,
-                fontSize: 10,
-                color: focused ? GLOBAL.COLOR.FIRSTGREEN : GLOBAL.COLOR.GREY
+                fontSize: GLOBAL.TEXT.SMALL_TEXT,
+                color: focused ? GLOBAL.COLOR.FIRSTCOLOR : GLOBAL.COLOR.GREY
               }}>Favoris</Text>
             </View>
           )
@@ -86,12 +85,12 @@ const TabBar = () => {
                 icon={faUser} 
                 size={20}
                 style={{
-                  color: focused ? GLOBAL.COLOR.FIRSTGREEN : GLOBAL.COLOR.GREY
+                  color: focused ? GLOBAL.COLOR.FIRSTCOLOR : GLOBAL.COLOR.GREY
                 }}/>
              <Text style={{
                 marginTop: 3,
-                fontSize: 10,
-                color: focused ? GLOBAL.COLOR.FIRSTGREEN : GLOBAL.COLOR.GREY
+                fontSize: GLOBAL.TEXT.SMALL_TEXT,
+                color: focused ? GLOBAL.COLOR.FIRSTCOLOR : GLOBAL.COLOR.GREY
               }}>Profil</Text>
             </View>
           )

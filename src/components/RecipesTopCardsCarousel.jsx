@@ -2,28 +2,27 @@ import { StyleSheet, FlatList, View, SafeAreaView } from 'react-native'
 import React from 'react'
 
 // DATA //
-import data from '../data/data.json'
+import data from '../data/category.json'
 
 // COMPONENTS //
 import RecipesTopCard from '../components/RecipesTopCard'
 
 const RecipesTopCardsCarousel = () => {
 
-  const item = data
+ const item = data
 
   
 
   const renderItem = ({item}) => (
     <RecipesTopCard 
-        title={item.title}
-        txtInfos={item.category}
-        imageUrl={item.image}
+        imageUrl={item.categoryImage}
+        txtInfos={item.categoryName}
     />
   )
 
 
   return (
-  <View style={{height :'15%',}} >
+  <View style={{height :'20%'}} >
    <FlatList
           data={item}
           renderItem={renderItem}

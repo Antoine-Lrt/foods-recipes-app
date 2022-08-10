@@ -16,7 +16,7 @@ export default RecipesInfosTag
 
 const styles = StyleSheet.create({
     tagContainer:{
-        backgroundColor: GLOBAL.COLOR.FIRSTGREEN,
+        backgroundColor: GLOBAL.COLOR.FIRSTCOLOR,
         padding: 5,
         borderRadius: 50
 

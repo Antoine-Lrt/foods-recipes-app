@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
 
   searchIcons: {
-    color: GLOBAL.COLOR.SECONDGREEN
+    color: GLOBAL.COLOR.SECONDCOLOR
   }
 
 
