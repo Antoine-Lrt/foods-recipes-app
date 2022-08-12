@@ -15,7 +15,7 @@ const SocialSignInButton = () => {
         console.warn('Connecté avec Apple');
       };
   return (
-    <>
+    <View style={{padding:10 }}>
       <CustomButton
         text="Se connecter avec Facebook"
         onPress={onSignFacebook}
@@ -37,7 +37,7 @@ const SocialSignInButton = () => {
         txtColor="#363636"
       />
 
-    </>
+    </View>
   )
 }
 

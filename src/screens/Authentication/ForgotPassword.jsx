@@ -1,22 +1,33 @@
 import React, { useState } from 'react'
 import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import CustomButton from '../../components/CustomButton'
-import CustomInput from '../../components/CustomInput'
-import image from '../../../assets/images/background.jpg'
+
+// NAVIGATION //
 import { useNavigation } from '@react-navigation/native'
+
+// HOOKS //
+import {useForm} from 'react-hook-form'
+
+// COMPONENTS //
+import CustomButton from '../../components/CustomButton'
+import CustomInputText from '../../components/CustomInputText';
+import CustomInputPassword from '../../components/CustomInputPassword';
+
+// IMAGES //
+import image from '../../../assets/images/background.jpg'
+
 
 
 
 
 const ForgotPassword = () => {
 
-  const [code, setCode] = useState('')
-  const [newPassword, setNewPassword] = useState('')
+  const {control, handleSubmit} = useForm()
 
   const navigation = useNavigation()
 
 
-  const onSubmit = () =>{
+  const onSubmit = (data) =>{
+    console.warn(data)
     navigation.navigate('ResetPassword')
   }
 
@@ -40,16 +51,20 @@ const ForgotPassword = () => {
                 <Text style={styles.text}>Modifier votre mot de passe</Text>
               </View>
       
-              <CustomInput 
-                  placeholder={"Pseudo"}
-                  value={code}
-                  setValue={setCode} 
-                  secureText={false}
-                />
+              <CustomInputText 
+                  name="username"
+                  placeholder="Pseudo"
+                  control={control}
+                  rules={{
+                    required: "Veuillez entrer un pseudo",
+                    minLength : {value: 3, message: "3 caractères minimum"},
+                    maxLength : {value: 20, message: "20 caractères maximum"},
+                    }}
+                  />
 
               <CustomButton
                   text={"Envoyer"}
-                  onPress={onSubmit}
+                  onPress={handleSubmit(onSubmit)}
                   />
 
 
@@ -82,6 +97,7 @@ const styles = StyleSheet.create({
 
   imageBackground: {
     flex: 1,
+    padding: 10,
     justifyContent: "center",
     alignItems: 'center'
   },

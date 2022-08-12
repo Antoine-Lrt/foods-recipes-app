@@ -7,6 +7,13 @@ module.exports = {
       FIRSTCOLOR: '#6a994e',
       SECONDCOLOR: '#d3eb74',
       THIRDCOLOR: '#E5ECAF',
+      INPUT_BORDER_VALIDE: '#e8e8e8',
+      INPUT_BORDER_ERROR: '#ff0000',
+      INPUT_BORDER_WIDTH_VALIDE: 1,
+      INPUT_BORDER_WIDTH_ERROR: 3
+
+
+      
     },
 
     TEXT:{

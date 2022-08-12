@@ -1,22 +1,32 @@
 import React, { useState } from 'react'
 import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import CustomButton from '../../components/CustomButton'
-import CustomInput from '../../components/CustomInput'
-import image from '../../../assets/images/background.jpg'
 
+// NAVIGATION //
 import { useNavigation } from '@react-navigation/native'
+
+// HOOKS //
+import {useForm} from 'react-hook-form'
+
+// COMPONENTS //
+import CustomButton from '../../components/CustomButton'
+import CustomInputText from '../../components/CustomInputText';
+import CustomInputPassword from '../../components/CustomInputPassword';
+
+// IMAGES //
+import image from '../../../assets/images/background.jpg'
 
 
 
 
 const ConfirmEmail = () => {
 
-  const [code, setCode] = useState('')
+  const {control, handleSubmit} = useForm()
 
   const navigation = useNavigation()
 
 
-  const onConfirmEmail = () =>{
+  const onConfirmEmail = (data) =>{
+    console.warn(data)
     navigation.navigate('Home')
   }
 
@@ -43,16 +53,18 @@ const ConfirmEmail = () => {
                 <Text style={styles.text}>Confirmer votre Email</Text>
               </View>
       
-              <CustomInput 
-                  placeholder={"Code de confirmation"}
-                  value={code}
-                  setValue={setCode} 
-                  secureText={false}
+              <CustomInputText 
+                  placeholder="Entrer le code de confirmation"
+                  name="confirm-code"
+                  control={control}
+                  rules={{
+                    required: "Veuillez entrer votre code de confirmation",
+                  }}
                   />
 
               <CustomButton
                   text={"Confirmer"}
-                  onPress={onConfirmEmail}
+                  onPress={handleSubmit(onConfirmEmail)}
                   />
 
               <CustomButton
@@ -90,6 +102,7 @@ const styles = StyleSheet.create({
 
   imageBackground: {
     flex: 1,
+    padding: 10,
     justifyContent: "center",
     alignItems: 'center'
   },

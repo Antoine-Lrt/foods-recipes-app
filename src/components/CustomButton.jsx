@@ -29,12 +29,13 @@ const styles = StyleSheet.create({
   
 
     buttonContainer:{
-      width: 250,
+      width: 350,
       height: 50,
       borderRadius: 10,
       justifyContent: 'center',
       alignItems:'center',
-      marginBottom: 10,
+  
+      marginTop: 5
     },
 
     buttonContainer_FIRST: {

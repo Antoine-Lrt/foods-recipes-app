@@ -1,24 +1,37 @@
 import React, { useState } from 'react';
 import {
-  Image, SafeAreaView, StyleSheet, View, ImageBackground
+  Image, SafeAreaView, StyleSheet, View, ImageBackground, Text
 } from 'react-native';
-import CustomButton from '../../components/CustomButton';
-import CustomInput from '../../components/CustomInput';
-import SocialSignInButton from '../../components/SocialSignInButton'
-import logo from '../../../assets/images/logo.png'
-import image from '../../../assets/images/background.jpg'
 
-import { useNavigation } from '@react-navigation/native';
+// HOOKS //
+import {useForm} from 'react-hook-form'
+
+// NAVIGATION //
+import { useNavigation } from '@react-navigation/native'
+
+// COMPONENTS //
+import CustomButton from '../../components/CustomButton';
+import CustomInputText from '../../components/CustomInputText';
+import CustomInputPassword from '../../components/CustomInputPassword';
+import SocialSignInButton from '../../components/SocialSignInButton'
+
+//IMAGES
+import image from '../../../assets/images/background.jpg'
+import logo from '../../../assets/images/logo.png'
+
 
 
 
 function SignIn() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   const navigation = useNavigation()
 
-  const onSignPressed = () => {
+  const {control, handleSubmit, formState: {errors}} = useForm()
+
+
+ 
+  const onSignPressed = (data) => {
+    console.log(data)
     //user valide
     navigation.navigate('TabBar')
   };
@@ -48,21 +61,35 @@ function SignIn() {
           style={styles.logoImg}
         />
       </View>
-      <CustomInput
+      <CustomInputText
+        name="email"
         placeholder="Email"
-        value={email}
-        setValue={setEmail}
-        secureText={false}
+        control={control}
+        rules={{
+          required: "Veuillez entrer votre email",
+          pattern: {
+                      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: "Veuillez entrer un Email valide",
+                      },}}
+        
+        
       />
-      <CustomInput
+      <CustomInputPassword
+        name='password'
         placeholder="Mot de passe"
-        value={password}
-        setValue={setPassword}
-        secureText
+        secureTextEntry
+        control={control}
+        rules={{
+          required: "Veuillez entrer votre mot de passe",
+          minLength : {value: 8, message: "8 charactères minimum"}
+          }}
+          isShowIcon={true}
+        
       />
+
       <CustomButton
         text="Se Connecter"
-        onPress={onSignPressed}
+        onPress={handleSubmit(onSignPressed)}
       />
 
       <CustomButton
@@ -92,14 +119,15 @@ const styles = StyleSheet.create({
   signinContainer: {
     flex: 1,
     width: '100%',
-    padding: 15,
     marginVertical: 5,
     alignItems: 'center',
     borderRadius: 5,
+    marginTop: 5
   },
 
   imageBackground: {
     flex: 1,
+    padding: 10,
     justifyContent: "center",
     alignItems: 'center'
   },

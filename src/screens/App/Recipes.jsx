@@ -8,17 +8,18 @@ const screenWidth = Dimensions.get('window').width
 // COMPONENTS //
 import RecipesCardsList from '../../components/RecipesCardsList'
 import CustomScreenHeader from '../../components/CustomScreenHeader'
+import { useAuth } from '../../contexts/AuthContext'
 
 
 
 const Recipes = () => {
-
+  const {currentUser} = useAuth()
   return (
     <SafeAreaView style={{alignItems: 'center', justifyContent: 'space-between',}}>
       <StatusBar barStyle={'dark-content'} />
           <CustomScreenHeader
             text1={"Bonjour"}
-            text2={"Antoine"}
+            text2={`${currentUser}`}
           />
       <RecipesCardsList />    
     </SafeAreaView>

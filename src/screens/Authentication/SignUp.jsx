@@ -1,23 +1,34 @@
 import React, { useState } from 'react'
 import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import CustomButton from '../../components/CustomButton'
-import CustomInput from '../../components/CustomInput'
-import image from '../../../assets/images/background.jpg'
-import SocialSignInButton from '../../components/SocialSignInButton'
+
+// NAVIGATION //
 import { useNavigation } from '@react-navigation/native'
 
+// HOOKS //
+import {useForm} from 'react-hook-form'
 
+// FIREBASE //
+
+
+// COMPONENTS //
+import CustomButton from '../../components/CustomButton'
+import CustomInputText from '../../components/CustomInputText';
+import CustomInputPassword from '../../components/CustomInputPassword';
+import SocialSignInButton from '../../components/SocialSignInButton'
+
+//IMAGES
+import image from '../../../assets/images/background.jpg'
 
 
 
 const SignUp = () => {
 
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('') 
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
-
+  const {control, handleSubmit, watch} = useForm()
+  
+  const password= watch("password")
   const navigation = useNavigation()
+
+
 
   const onSignUpPressed = () =>{
     navigation.navigate('ConfirmEmail')
@@ -55,33 +66,54 @@ const SignUp = () => {
               <View style={styles.textContainer}>
                 <Text style={styles.text}>Créer un compte</Text>
               </View>
-              <CustomInput 
-                  placeholder={"Pseudo"}
-                  value={username}
-                  setValue={setUsername} 
-                  secureText={false}
+              <CustomInputText 
+                  name="username"
+                  placeholder="Pseudo"
+                  control={control}
+                  rules={{
+                    required: "Veuillez entrer un pseudo",
+                    minLength : {value: 3, message: "3 caractères minimum"},
+                    maxLength : {value: 20, message: "20 caractères maximum"},
+                    }}
                   />
-              <CustomInput 
-                  placeholder={"Email"}
-                  value={email}
-                  setValue={setEmail} 
-                  secureText={false}
+              <CustomInputText 
+                  placeholder="Email"
+                  name="email"
+                  control={control}
+                  rules={{
+                    required: "Veuillez entrer un e-mail",
+                    pattern: {
+                      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: "Veuillez entrer un Email valide",
+                      },
+                    }}
                   />
-              <CustomInput 
-                  placeholder={"Mot de passe"}
-                  value={password}
-                  setValue={setPassword}
-                  secureText={true}
+              <CustomInputPassword 
+                  placeholder="Mot de passe"
+                  name="password"
+                  control={control}
+                  secureTextEntry
+                  rules={{
+                    required: "Veuillez entrer un mot de passe",
+                    minLength : {value: 8, message: "8 caractères minimum"},
+                  }}
+                  isShowIcon={true}
                   />
-              <CustomInput 
-                  placeholder={"Confirmer le mot de passe"}
-                  value={passwordConfirm}
-                  setValue={setPasswordConfirm}
-                  secureText={true}
-                  />  
+              <CustomInputPassword 
+                  placeholder="Confirmer le mot de passe"
+                  name="confirm-password"
+                  control={control}
+                  secureTextEntry
+                  rules={{
+                    required: "Veuillez entrer un mot de passe",
+                    validate: value => value === password ? true : "Le mot de passe ne correspond pas"
+                  }}
+                  isShowIcon={true}
+                  />
+
                 <CustomButton
                   text={"Créer un compte"}
-                  onPress={onSignUpPressed}
+                  onPress={handleSubmit(onSignUpPressed)}
                   />
 
                 <SocialSignInButton />
@@ -118,6 +150,7 @@ const styles = StyleSheet.create({
 
   imageBackground: {
     flex: 1,
+    padding: 10,
     justifyContent: "center",
     alignItems: 'center'
   },
@@ -140,7 +173,6 @@ const styles = StyleSheet.create({
   },
 
   textConditions: {
-    marginTop: 30,
     width: 300,
     color: "black",
     fontSize: 10,

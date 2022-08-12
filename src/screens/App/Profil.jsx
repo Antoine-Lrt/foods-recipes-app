@@ -13,6 +13,9 @@ const Profil = () => {
           text1={"Mon"} 
           text2={"Profil"}
           />
+
+
+          <Text> PAGE MODIFIER PROFIL, UTILISER UN BOTTOM SHEET ET LE DEFAULT VALUES DE HOOK FORM POUR LES INPUT</Text>
     </SafeAreaView>
   )
 }
