@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Image, SafeAreaView, StyleSheet, View, ImageBackground, Text
 } from 'react-native';
 
 // HOOKS //
 import {useForm} from 'react-hook-form'
+import useMounted from '../../hooks/useMounted';
+
+// FIREBASE //
+import { useAuth } from '../../contexts/AuthContext';
+
 
 // NAVIGATION //
 import { useNavigation } from '@react-navigation/native'
@@ -26,16 +31,38 @@ function SignIn() {
 
   const navigation = useNavigation()
 
-  const {control, handleSubmit, formState: {errors}} = useForm()
+  const {control, handleSubmit, formState: {errors}, watch} = useForm()
 
+  
 
- 
+  const email = watch('email')
+  const password = watch("password")
+  
+  const {isSignIn} = useAuth()
+
+  const mounted = useMounted()
+
   const onSignPressed = (data) => {
     console.log(data)
-    //user valide
-    navigation.navigate('TabBar')
+    isSignIn(email, password)
+    .then((res) => {
+      console.log(res),
+      navigation.navigate('TabBar')
+    })
+    .catch((error) => {
+      console.log(error);
+      switch(error.code) {
+        case 'auth/user-not-found': alert("Aucun utilisateur trouvé");
+        break
+        case 'auth/wrong-password' : alert("Mot de passe incorrect");
+        break
+      }
+    })
+    .finally(() => mounted.current)
   };
 
+
+  
   const onForgotPassword = () => {
     navigation.navigate('ForgotPassword')
   };
@@ -81,7 +108,7 @@ function SignIn() {
         control={control}
         rules={{
           required: "Veuillez entrer votre mot de passe",
-          minLength : {value: 8, message: "8 charactères minimum"}
+          minLength : {value: 8, message: "8 caractères minimum"}
           }}
           isShowIcon={true}
         

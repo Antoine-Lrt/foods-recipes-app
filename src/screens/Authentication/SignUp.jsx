@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { ImageBackground, SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert } from 'react-native'
 
 // NAVIGATION //
 import { useNavigation } from '@react-navigation/native'
 
 // HOOKS //
 import {useForm} from 'react-hook-form'
+import useMounted from '../../hooks/useMounted'
 
-// FIREBASE //
+// FIREBASE // 
+import { useAuth } from '../../contexts/AuthContext'
 
 
 // COMPONENTS //
@@ -21,17 +23,36 @@ import image from '../../../assets/images/background.jpg'
 
 
 
+
+
 const SignUp = () => {
 
-  const {control, handleSubmit, watch} = useForm()
-  
-  const password= watch("password")
   const navigation = useNavigation()
 
+  const {control, handleSubmit, watch} = useForm()
 
+  const email= watch("email")
+  const password= watch("password")
 
-  const onSignUpPressed = () =>{
-    navigation.navigate('ConfirmEmail')
+  const {isSignUp} = useAuth()
+
+  const mounted = useMounted()
+
+  const onSignUpPressed = (data) =>{
+    console.log(data)
+    isSignUp(email, password)
+    .then((res) => {
+      console.log(res)
+      navigation.navigate('ConfirmEmail')
+      })
+    .catch((error) => {
+      console.log(error);
+      switch(error.code) {
+        case "auth/email-already-in-use" : alert("Un compte utilise déjà cet email");
+        break
+      }
+    })
+    .finally(() => mounted.current)
   }
 
   const onSigneIn= () =>{
@@ -67,6 +88,7 @@ const SignUp = () => {
                 <Text style={styles.text}>Créer un compte</Text>
               </View>
               <CustomInputText 
+                  
                   name="username"
                   placeholder="Pseudo"
                   control={control}
@@ -81,7 +103,7 @@ const SignUp = () => {
                   name="email"
                   control={control}
                   rules={{
-                    required: "Veuillez entrer un e-mail",
+                    required: "Veuillez entrer un email",
                     pattern: {
                       value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                       message: "Veuillez entrer un Email valide",
@@ -122,7 +144,6 @@ const SignUp = () => {
                   text={'Déja un compte ? Se connecter'}
                   onPress={onSigneIn}
                   type={'SECOND'}
-
                   />
                 <Text style={styles.textConditions}>
                   En vous inscrivant, vous acceptez les <Text style={styles.textConditionsLink} onPress={onTermOfUser}>Conditions d'Utilisation</Text> et la <Text style={styles.textConditionsLink} onPress={onPrivacyPolicy}>Politique de Confidentialité</Text>, incluant l'<Text style={styles.textConditionsLink} onPress={onCookiesUtilisationst}>Utilisation de Cookies.</Text>

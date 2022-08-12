@@ -8,6 +8,8 @@ const screenWidth = Dimensions.get('window').width
 // COMPONENTS //
 import RecipesCardsList from '../../components/RecipesCardsList'
 import CustomScreenHeader from '../../components/CustomScreenHeader'
+
+// FIREBASE //
 import { useAuth } from '../../contexts/AuthContext'
 
 

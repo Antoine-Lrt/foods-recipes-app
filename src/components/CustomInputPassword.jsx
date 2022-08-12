@@ -28,6 +28,7 @@ const CustomInputPassword = ({control, name, placeholder, rules = {},textError, 
       setIcon(faEyeSlash)     
     } 
   } 
+  
 
   
   return (

@@ -1,15 +1,32 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+
+
+// FIREBASE //
+import { useAuth } from '../contexts/AuthContext'
+
+// COMPONENTS //
 import CustomButton from './CustomButton'
 
 const SocialSignInButton = () => {
+
+    // const {isSignInWithGoogle} = useAuth()
+
+  
     const onSignFacebook = () => {
         console.warn('Connecté avec Facebook');
       };
     
       const onSignGoogle = () => {
         console.warn('Connecté avec Google');
-      };
+        // isSignInWithGoogle()
+        // .then((user) => {
+        //   console.log(user)
+        //   })
+        // .catch((error) => {
+        //   console.log(error);
+        // })
+      }
     
       const onSignApple = () => {
         console.warn('Connecté avec Apple');

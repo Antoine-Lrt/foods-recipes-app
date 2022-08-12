@@ -7,6 +7,9 @@ import { useNavigation } from '@react-navigation/native'
 // HOOKS //
 import {useForm} from 'react-hook-form'
 
+// FIREBASE //
+import { useAuth } from '../../contexts/AuthContext'
+
 // COMPONENTS //
 import CustomButton from '../../components/CustomButton'
 import CustomInputText from '../../components/CustomInputText';
@@ -16,13 +19,24 @@ import CustomInputPassword from '../../components/CustomInputPassword';
 import image from '../../../assets/images/background.jpg'
 
 
-
+// const useQuery = () => {
+//   const location = useLocation()
+//   return new URLSearchParams(location.search);
+// }
 
 
 const ResetPassword = () => {
 
+  // const {resetPassword} = useAuth()
+  // const query = useQuery()
+  // console.log(query.get('mode'));
+  // console.log(query.get('oobCode'))
+  // console.log(query.get('continueURL'))
+
+ 
+
   const {control, handleSubmit} = useForm()
-  const [newPassword, setNewPassword] = useState('')
+  // const [newPassword, setNewPassword] = useState('')
 
   const navigation = useNavigation()
 
@@ -64,7 +78,7 @@ const ResetPassword = () => {
 
               <CustomInputPassword 
                   placeholder={"Entrer votre nouveau mot de passe"}
-                  name="newPassword"
+                  name="ressetPassword"
                   control={control}
                   secureTextEntry
                   rules={{

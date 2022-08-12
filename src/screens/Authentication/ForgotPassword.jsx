@@ -14,21 +14,36 @@ import CustomInputPassword from '../../components/CustomInputPassword';
 
 // IMAGES //
 import image from '../../../assets/images/background.jpg'
+import { useAuth } from '../../contexts/AuthContext'
 
 
 
 
 
 const ForgotPassword = () => {
+  
+  const {forgotPassword} = useAuth()
+  const {control, handleSubmit, watch} = useForm()
 
-  const {control, handleSubmit} = useForm()
+
+
+  const email= watch("email")
+
 
   const navigation = useNavigation()
 
 
   const onSubmit = (data) =>{
-    console.warn(data)
-    navigation.navigate('ResetPassword')
+    console.log(data)
+    forgotPassword(email)
+      .then(res => {
+        console.log(res);
+        alert("Email envoyé, vérifiez vos email")
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    // navigation.navigate('ResetPassword')
   }
 
   const onBackToSign = () =>{
@@ -52,13 +67,15 @@ const ForgotPassword = () => {
               </View>
       
               <CustomInputText 
-                  name="username"
-                  placeholder="Pseudo"
+                  name="email"
+                  placeholder="Email"
                   control={control}
                   rules={{
-                    required: "Veuillez entrer un pseudo",
-                    minLength : {value: 3, message: "3 caractères minimum"},
-                    maxLength : {value: 20, message: "20 caractères maximum"},
+                    required: "Veuillez entrer votre email",
+                    pattern: {
+                      value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: "Veuillez entrer un Email valide",
+                      },
                     }}
                   />
 

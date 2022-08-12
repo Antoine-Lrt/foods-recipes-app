@@ -12,6 +12,7 @@ const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor }) => {
           bgColor ? {borderColor: bgColor, backgroundColor: null, borderWidth: 1} : {}
           ]} 
         onPress={onPress}
+        
         >
         <Text style={[
           styles.buttonText, 
