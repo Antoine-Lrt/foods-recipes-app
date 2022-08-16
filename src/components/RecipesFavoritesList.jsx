@@ -5,59 +5,38 @@ import { useNavigation } from '@react-navigation/native'
 
 
 // DATA //
-import data from '../data/fav.json'
+import data from '../data/data.json'
 
 // COMPONENTS //
 import RecipesFavoriteCard from './RecipesFavoriteCard'
 import CustomSearchBar from './CustomSearchBar'
-import RecipesTopCardsCarousel from './RecipesTopCardsCarousel'
+
+
+// CONSTANTS //
+import GLOBAL from '../constants/GLOBAL'
 
 
 
+const RecipesFavoritesList = () => {
 
-
-const RecipesFavoritesList = ({}) => {
 
 
   // DIMENSION //
   const screenWidth = Dimensions.get('window').width
 
-  // NAVIFGATION //
-
+  // NAVIGATION //
   const navigation = useNavigation()
 
-  // STATE //
-  // list state 
-  let [list, setList] = useState(data)
-  // search state 
-  const [search, setSearch] = useState('')
-  // filter state
-  const [updated, setUpdates] = useState(data)
+
+  // state
+  const [favorites, setFavorites] = useState(data)
   
-  const searchRecipe = (text) => {
-    // changeText
-    if (text) {
-      const newData = list.filter(item => {
-        const listItem = `${item.title.toLocaleLowerCase()} ${item.category.toLocaleLowerCase()} ${item.level.toLocaleLowerCase()}`
-        return listItem.indexOf(text.toLocaleLowerCase()) > -1
-      })  
-      setUpdates(newData)
-    }  
-  }  
+ 
   return (
     <View>
-   
-    <CustomSearchBar
-        placeholder={"Recherche"}
-        value={search}
-        onChangeText={(text) => {
-          searchRecipe(text)
-          setSearch(text)
-        }} 
-        />
-        
+          
     <FlatList
-          data={updated}
+          data={favorites}
           keyExtractor={item => item.id}
           renderItem={({item}) =>(
             <RecipesFavoriteCard
@@ -88,6 +67,7 @@ const RecipesFavoritesList = ({}) => {
               })}
           />
           )}
+          ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}
           numColumns={"2"}
           contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:260}}
       />

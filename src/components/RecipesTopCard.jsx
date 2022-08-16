@@ -1,17 +1,22 @@
-import { StyleSheet, Text, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
 import { ImageBackground } from 'react-native'
 
 // COSNTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
-const RecipesTopCard = ({ txtInfos, imageUrl}) => {
+const RecipesTopCard = ({ txtInfos, imageUrl, onPress}) => {
   return (
-    <TouchableOpacity >
+    <View>
+    <TouchableOpacity onPress={onPress} activeOpacity={.6}>
       <ImageBackground source={{uri: imageUrl}} resizeMode='cover' style={styles.cardContainer} imageStyle={{borderRadius: 12, opacity: .6}} >
         <Text style={styles.cardTitle}>{txtInfos}</Text>
       </ImageBackground>
     </TouchableOpacity>
+    </View>
+    
+
+
   )
 }
 

@@ -1,22 +1,39 @@
-import { FlatList, StyleSheet, Text, View, Image, Dimensions } from 'react-native'
-import React, {useState} from 'react'
+import { FlatList, StyleSheet, Text, View, Image, Dimensions, ActivityIndicator } from 'react-native'
+import React, {useEffect, useMemo, useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 
 
 
 // DATA //
 import data from '../data/data.json'
+import dataList from '../data/category.json'
+import { db } from '../../utils/firebase-config';
+
+
 
 // COMPONENTS //
 import RecipesCard from './RecipesCard'
 import CustomSearchBar from './CustomSearchBar'
-import RecipesTopCardsCarousel from './RecipesTopCardsCarousel'
+import RecipesTopCard from './RecipesTopCard'
+import { Button } from 'react-native-elements';
+import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons'
+import GLOBAL from '../constants/GLOBAL'
 
 
 
 
 const RecipesCardsList = ({}) => {
 
+
+  
+
+
+
+  // if(loading) {
+  //   return <ActivityIndicator />;
+  // }
+  
+ 
 
   // DIMENSION //
   const screenWidth = Dimensions.get('window').width
@@ -26,12 +43,17 @@ const RecipesCardsList = ({}) => {
   const navigation = useNavigation()
 
   // STATE //
+
   // list state 
   let [list, setList] = useState(data)
   // search state 
   const [search, setSearch] = useState('')
+  // category state
+  const [category, setCategory]= useState('Toutes les recettes')
   // filter state
   const [updated, setUpdates] = useState(data)
+
+  // SEARCHBAR //
   
   const searchRecipe = (text) => {
     // changeText
@@ -43,21 +65,75 @@ const RecipesCardsList = ({}) => {
       setUpdates(newData)
     }  
   }  
+
+  // RECIPES TOP CARD CAROUSEL //
+
+  const item = dataList
+
+  const renderItem = ({item}) => (
+    <RecipesTopCard 
+        imageUrl={item.categoryImage}
+        txtInfos={item.categoryName}
+        
+    />
+  )
+
+  // BUTTON FILTER //
+  
+  // Keep a category of the current selected category //
+
+  const filteredList = useMemo(
+    () => {
+      if (category === 'Toutes les recettes') return list
+      return list.filter(item => category === item.category)
+    },
+    [category, list]
+  )
+
+  const onClick = (category) => () => {
+    setCategory(category)
+  }
+
   return (
     <View>
-   
-    <CustomSearchBar
-        placeholder={"Recherche"}
+    {/* <CustomSearchBar
+        placeholder={"search"}
         value={search}
         onChangeText={(text) => {
           searchRecipe(text)
-          setSearch(text)
+          setCategory(text)
         }} 
 
-        />
-    <RecipesTopCardsCarousel />
+        /> */}
+     <View style={{height:"20%"}} >
+
     <FlatList
-          data={updated}
+          data={item}
+          renderItem={({item}) => (
+            <RecipesTopCard 
+              imageUrl={item.categoryImage}
+              txtInfos={item.categoryName}
+              onPress={onClick(item.categoryName)}
+            />
+          )}
+          keyExtractor={(item) => item.title}
+          pagingEnabled
+          horizontal 
+          showsHorizontalScrollIndicator={false} 
+          snapToInterval={1}
+          decelerationRate="fast"
+          contentContainerStyle={{alignItems:'center', justifyContent: 'center', }}  
+    />    
+
+
+
+
+     </View>   
+    
+<View style={{ height:"70%"}} >
+
+    <FlatList
+          data={filteredList}
           keyExtractor={item => item.id}
           renderItem={({item}) =>(
             <RecipesCard 
@@ -87,10 +163,13 @@ const RecipesCardsList = ({}) => {
                 ),
 
               })}
+               
           />
           )}
-          contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:260}}
+          ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}
+          contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:50}}
       />
+</View>
     </View>
 
   )

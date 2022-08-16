@@ -46,7 +46,7 @@ function SignIn() {
     console.log(data)
     isSignIn(email, password)
     .then((res) => {
-      console.log(res),
+      console.log(res)
       navigation.navigate('TabBar')
     })
     .catch((error) => {

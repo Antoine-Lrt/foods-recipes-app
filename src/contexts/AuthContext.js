@@ -1,6 +1,17 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { authentication } from "../../utils/firebase-config";
-import { createUserWithEmailAndPassword , signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithRedirect, setPersistence, sendPasswordResetEmail, confirmPasswordReset} from "firebase/auth";
+import { authentication, db } from "../../utils/firebase-config";
+import { createUserWithEmailAndPassword , 
+        signInWithEmailAndPassword, 
+        onAuthStateChanged, signOut, 
+        GoogleAuthProvider, 
+        signInWithRedirect, setPersistence, 
+        sendPasswordResetEmail, 
+        confirmPasswordReset,
+        updateProfile
+} from "firebase/auth";
+
+
+
 
 
 
@@ -17,7 +28,9 @@ const AuthContext = createContext({
 export const useAuth = () => useContext(AuthContext)
 
 export default function AuthContextProvider({children}) {
-    const[currentUser, setCurrentUser] =useState(null)
+    const [currentUser, setCurrentUser] =useState(null)
+
+    
 
     useEffect(() =>{
         const unsubscribe = onAuthStateChanged(authentication, user => {
@@ -28,9 +41,23 @@ export default function AuthContextProvider({children}) {
         }
     }, [])
 
-    const isSignUp = (email, password) => {
-        return createUserWithEmailAndPassword(authentication,email, password )
+    
+    const isSignUp = async (email, password, displayName) => {
+        const {user} = await createUserWithEmailAndPassword(authentication,email, password)
+        await updateProfile(user, {
+            'displayName': displayName
+        })
+        isSignOut()
+      
+
+
+        
+        
+        
+        // console.log(user);
+        
     }
+    
 
     const isSignIn = (email, password) => {
         return signInWithEmailAndPassword(authentication,email, password )

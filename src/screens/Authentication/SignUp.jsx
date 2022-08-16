@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ImageBackground, SafeAreaView, StyleSheet, Text, View, Alert } from 'react-native'
 
 // NAVIGATION //
@@ -10,6 +10,7 @@ import useMounted from '../../hooks/useMounted'
 
 // FIREBASE // 
 import { useAuth } from '../../contexts/AuthContext'
+
 
 
 // COMPONENTS //
@@ -25,6 +26,7 @@ import image from '../../../assets/images/background.jpg'
 
 
 
+
 const SignUp = () => {
 
   const navigation = useNavigation()
@@ -33,6 +35,15 @@ const SignUp = () => {
 
   const email= watch("email")
   const password= watch("password")
+  const displayName = watch ("pseudo")
+
+
+  console.log(displayName);
+
+  
+
+  
+
 
   const {isSignUp} = useAuth()
 
@@ -40,10 +51,10 @@ const SignUp = () => {
 
   const onSignUpPressed = (data) =>{
     console.log(data)
-    isSignUp(email, password)
+    isSignUp(email, password, displayName )
     .then((res) => {
       console.log(res)
-      navigation.navigate('ConfirmEmail')
+      navigation.navigate('SignIn')
       })
     .catch((error) => {
       console.log(error);
@@ -56,7 +67,7 @@ const SignUp = () => {
   }
 
   const onSigneIn= () =>{
-    navigation.navigate('SignIn')
+    // navigation.navigate('SignIn')
   }
 
   const onTermOfUser = () =>{
@@ -88,8 +99,7 @@ const SignUp = () => {
                 <Text style={styles.text}>Créer un compte</Text>
               </View>
               <CustomInputText 
-                  
-                  name="username"
+                  name="pseudo"
                   placeholder="Pseudo"
                   control={control}
                   rules={{

@@ -26,14 +26,44 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        {!currentUser 
+          ? (
+            <>
+            <Stack.Screen name='SignIn' component={SignIn} options={{gestureEnabled: false}}/>
+        <Stack.Screen name='SignUp' component={SignUp} options={{gestureEnabled: false}}/>
+        <Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{gestureEnabled: false}}/>
+        <Stack.Screen name='ResetPassword' component={ResetPassword} options={{gestureEnabled: false}}/>
+
+            </>
+
+          )
+        : (
+            <>
+            <Stack.Screen name='ConfirmEmail' component={ConfirmEmail} options={{gestureEnabled: false}}/>
+          <Stack.Screen name='TabBar' component={TabBar} options={{gestureEnabled: false}}/>
+          <Stack.Screen name='RecipesDetails' component={RecipesDetails}/>
+            </>
+
+        )
+
+
+        }
+      
+       
+       
+         
+    
+        
+          
+        
         {/* <Stack.Screen name='OnBoarding' component={OnBoarding} /> */}
-        {!currentUser && <Stack.Screen name='SignIn' component={SignIn} options={{gestureEnabled: false}}/>}
+        {/* {!currentUser && <Stack.Screen name='SignIn' component={SignIn} options={{gestureEnabled: false}}/>}
         {!currentUser && <Stack.Screen name='SignUp' component={SignUp} options={{gestureEnabled: false}}/>}
         {!currentUser && <Stack.Screen name='ConfirmEmail' component={ConfirmEmail} options={{gestureEnabled: false}}/>}
         {!currentUser &&<Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{gestureEnabled: false}}/>}
         {!currentUser && <Stack.Screen name='ResetPassword' component={ResetPassword} options={{gestureEnabled: false}}/>}
         {currentUser &&<Stack.Screen name='TabBar' component={TabBar} options={{gestureEnabled: false}}/>}
-        {currentUser &&<Stack.Screen name='RecipesDetails' component={RecipesDetails}/>}
+        {currentUser &&<Stack.Screen name='RecipesDetails' component={RecipesDetails}/>} */}
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -1,4 +1,5 @@
 import { SafeAreaView, StyleSheet, StatusBar,View,Text,Dimensions} from 'react-native'
+import React, {useEffect, useState} from 'react'
 
 
 // DIMENSION //
@@ -14,14 +15,25 @@ import { useAuth } from '../../contexts/AuthContext'
 
 
 
+
+
+
+
+
 const Recipes = () => {
+
   const {currentUser} = useAuth()
+
+  console.log(currentUser);
+
+
+
   return (
     <SafeAreaView style={{alignItems: 'center', justifyContent: 'space-between',}}>
       <StatusBar barStyle={'dark-content'} />
           <CustomScreenHeader
             text1={"Bonjour"}
-            text2={`${currentUser}`}
+            text2={currentUser.displayName}
           />
       <RecipesCardsList />    
     </SafeAreaView>

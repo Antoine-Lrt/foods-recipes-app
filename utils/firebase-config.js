@@ -11,8 +11,8 @@ import {
 
 
 // Authentication
-import {getAuth, } from "firebase/auth"
-
+import {getAuth,} from "firebase/auth"
+import {getFirestore} from "firebase/firestore";
 
 
 
@@ -35,8 +35,5 @@ const firebaseConfig = {
   // Export auth //
   export const authentication = getAuth(app)
 
+  export const db = getFirestore(app)
 
-
-
-  // EXPORT DATA //
-  // export const db = getFirestore(app)

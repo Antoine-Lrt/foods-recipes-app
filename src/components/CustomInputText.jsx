@@ -53,7 +53,7 @@ export default CustomInputText;
 const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: GLOBAL.COLOR.WHITE,
-    width: '100%',
+    width: 350,
     borderColor: GLOBAL.COLOR.INPUT_BORDER_VALIDE,
     borderWidth: 1,
     borderRadius: 5,

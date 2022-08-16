@@ -13,44 +13,52 @@ import RecipesInfosTag from '../../components/RecipesInfosTag'
 import StepCard from '../../components/StepCard'
 
 // CONSTANTS //
-import GLOBAL, { COLOR } from '../../constants/GLOBAL'
+import GLOBAL from '../../constants/GLOBAL'
 
 
 
 
-const RecipesDetails = ({}) => {
+const RecipesDetails = ({handleFavouritesClick}) => {
 
- 
+  
+  
 
   const route = useRoute()
 
   const navigation = useNavigation()
 
   const {itemInfo,itemIngredients,itemIngredientsQuantity,itemIngredientsName,itemStep,itemStepIndex,itemStepDetails} = route.params
-   console.log(itemIngredients);
+
+
+  // ADD & DELETE FAVORITES //
+
 
   
  
 
   // CHANGE ICON COLOR WHEN ADD TO FAVORITES
 
-  const [colorIcon, setColorIcon] = useState(GLOBAL.COLOR.WHITE)
+  const [colorIcon, setColorIcon] = useState()
 
-  const changeIconColor = (colorIcon) => {
-    setColorIcon(colorIcon)
-  }
-  
-  const addToFavorite = () => {
-    if(colorIcon == GLOBAL.COLOR.WHITE) {
-      changeIconColor(GLOBAL.COLOR.FIRSTGREEN);
-      console.warn('Add favorites')
-    }
-   else {
-     changeIconColor(GLOBAL.COLOR.WHITE)
-     console.warn('Delete favorites')
-   }
 
-  }
+
+  // const changeIconColor = (colorIcon) => {
+  //   setColorIcon(colorIcon)
+  // }
+
+  // const addToFavoriteColor = () => {
+    
+  //   if(colorIcon == GLOBAL.COLOR.WHITE) {
+  //     changeIconColor(GLOBAL.COLOR.FIRSTCOLOR);
+  //     console.warn('Add favorites')
+  //   }
+  //  else {
+  //    changeIconColor(GLOBAL.COLOR.WHITE)
+  //    console.warn('Delete favorites')
+  //  }
+
+  // }
+
   
 
 
@@ -73,7 +81,7 @@ const RecipesDetails = ({}) => {
                       }}                      
                       />
           </TouchableOpacity>
-          <TouchableOpacity style={{width:30,}} onPress={addToFavorite}>
+          <TouchableOpacity style={{width:30,}} onPress={handleFavouritesClick}>
             <FontAwesomeIcon 
                       icon={faHeart} 
                       size={30}
