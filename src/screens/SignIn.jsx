@@ -5,24 +5,24 @@ import {
 
 // HOOKS //
 import {useForm} from 'react-hook-form'
-import useMounted from '../../hooks/useMounted';
+import useMounted from '../hooks/useMounted';
 
 // FIREBASE //
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 
 
 // NAVIGATION //
 import { useNavigation } from '@react-navigation/native'
 
 // COMPONENTS //
-import CustomButton from '../../components/CustomButton';
-import CustomInputText from '../../components/CustomInputText';
-import CustomInputPassword from '../../components/CustomInputPassword';
-import SocialSignInButton from '../../components/SocialSignInButton'
+import CustomButton from '../components/CustomButton';
+import CustomInputText from '../components/CustomInputText';
+import CustomInputPassword from '../components/CustomInputPassword';
+import SocialSignInButton from '../components/SocialSignInButton'
 
 //IMAGES
-import image from '../../../assets/images/background.jpg'
-import logo from '../../../assets/images/logo.png'
+import image from '../../assets/images/background.jpg'
+import logo from '../../assets/images/logo.png'
 
 
 
@@ -43,10 +43,10 @@ function SignIn() {
   const mounted = useMounted()
 
   const onSignPressed = (data) => {
-    console.log(data)
+    // console.log(data)
     isSignIn(email, password)
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       navigation.navigate('TabBar')
     })
     .catch((error) => {
@@ -125,7 +125,7 @@ function SignIn() {
         onPress={onForgotPassword}
       />
    
-      <SocialSignInButton />
+      {/* <SocialSignInButton /> */}
 
       <CustomButton
         text="Pas de compte ? Créer un compte"

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Animated, Dimensions, ImageBackground, StyleSheet, View } from 'react-native'
-import image from '../../../assets/images/background.jpg'
-import Slide from '../../components/Slide'
+import image from '../../assets/images/background.jpg'
+import Slide from '../components/Slide'
 import { useNavigation } from '@react-navigation/native'
 
 

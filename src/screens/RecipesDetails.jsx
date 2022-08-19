@@ -8,12 +8,12 @@ import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 
 // COMPONENTS //
-import IngredientsCard from '../../components/IngredientsCard'
-import RecipesInfosTag from '../../components/RecipesInfosTag'
-import StepCard from '../../components/StepCard'
+import IngredientsCard from '../components/IngredientsCard'
+import RecipesInfosTag from '../components/RecipesInfosTag'
+import StepCard from '../components/StepCard'
 
 // CONSTANTS //
-import GLOBAL from '../../constants/GLOBAL'
+import GLOBAL from '../constants/GLOBAL'
 
 
 

@@ -1,9 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Recipes from '../screens/App/Recipes'
-import Favorites from '../screens/App/Favorites'
-import Profil from '../screens/App/Profil'
+import Recipes from '../screens/Recipes'
+import Favorites from '../screens/Favorites'
+import Profil from '../screens/Profil'
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'

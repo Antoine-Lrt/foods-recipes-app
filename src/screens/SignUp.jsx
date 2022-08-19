@@ -6,24 +6,21 @@ import { useNavigation } from '@react-navigation/native'
 
 // HOOKS //
 import {useForm} from 'react-hook-form'
-import useMounted from '../../hooks/useMounted'
+import useMounted from '../hooks/useMounted'
 
 // FIREBASE // 
-import { useAuth } from '../../contexts/AuthContext'
-
+import { useAuth } from '../contexts/AuthContext'
 
 
 // COMPONENTS //
-import CustomButton from '../../components/CustomButton'
-import CustomInputText from '../../components/CustomInputText';
-import CustomInputPassword from '../../components/CustomInputPassword';
-import SocialSignInButton from '../../components/SocialSignInButton'
+import CustomButton from '../components/CustomButton'
+import CustomInputText from '../components/CustomInputText';
+import CustomInputPassword from '../components/CustomInputPassword';
+import SocialSignInButton from '../components/SocialSignInButton'
 
 //IMAGES
-import image from '../../../assets/images/background.jpg'
-
-
-
+import image from '../../assets/images/background.jpg'
+import GLOBAL from '../constants/GLOBAL'
 
 
 
@@ -38,23 +35,16 @@ const SignUp = () => {
   const displayName = watch ("pseudo")
 
 
-  console.log(displayName);
-
   
-
-  
-
-
-  const {isSignUp} = useAuth()
+  const {isSignUp, updateProfile} = useAuth()
 
   const mounted = useMounted()
 
   const onSignUpPressed = (data) =>{
     console.log(data)
-    isSignUp(email, password, displayName )
+    isSignUp(email, password, displayName)
     .then((res) => {
-      console.log(res)
-      navigation.navigate('SignIn')
+      console.log(res);
       })
     .catch((error) => {
       console.log(error);
@@ -67,7 +57,7 @@ const SignUp = () => {
   }
 
   const onSigneIn= () =>{
-    // navigation.navigate('SignIn')
+    navigation.navigate('SignIn')
   }
 
   const onTermOfUser = () =>{
@@ -148,7 +138,7 @@ const SignUp = () => {
                   onPress={handleSubmit(onSignUpPressed)}
                   />
 
-                <SocialSignInButton />
+                {/* <SocialSignInButton /> */}
 
                 <CustomButton
                   text={'Déja un compte ? Se connecter'}
@@ -156,7 +146,7 @@ const SignUp = () => {
                   type={'SECOND'}
                   />
                 <Text style={styles.textConditions}>
-                  En vous inscrivant, vous acceptez les <Text style={styles.textConditionsLink} onPress={onTermOfUser}>Conditions d'Utilisation</Text> et la <Text style={styles.textConditionsLink} onPress={onPrivacyPolicy}>Politique de Confidentialité</Text>, incluant l'<Text style={styles.textConditionsLink} onPress={onCookiesUtilisationst}>Utilisation de Cookies.</Text>
+                  En vous inscrivant, vous acceptez les <Text style={styles.textConditionsLink} onPress={onTermOfUser}>Conditions d'Utilisation</Text> et la <Text style={styles.textConditionsLink} onPress={onPrivacyPolicy}>Politique de Confidentialité</Text>.
                 </Text>
         </SafeAreaView>
       </ImageBackground>
@@ -192,7 +182,7 @@ const styles = StyleSheet.create({
 
   text: {
     color: "black",
-    fontSize: 30,
+    fontSize: GLOBAL.TEXT.H2,
     fontFamily: 'Futura',
     fontWeight: '700' ,
   },
@@ -204,12 +194,12 @@ const styles = StyleSheet.create({
   },
 
   textConditions: {
-    width: 300,
     color: "black",
-    fontSize: 10,
+    fontSize: GLOBAL.TEXT.TEXT,
     fontStyle: 'italic' ,
     fontFamily: 'Futura',
     fontWeight: 'light' ,
+  
     
   },
 

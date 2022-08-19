@@ -1,17 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { authentication, db } from "../../utils/firebase-config";
+import { authentication} from "../../utils/firebase-config";
 import { createUserWithEmailAndPassword , 
         signInWithEmailAndPassword, 
         onAuthStateChanged, signOut, 
-        GoogleAuthProvider, 
-        signInWithRedirect, setPersistence, 
         sendPasswordResetEmail, 
         confirmPasswordReset,
-        updateProfile
+        updateProfile,
+        deleteUser,
+        reauthenticateWithCredential
 } from "firebase/auth";
-
-
-
 
 
 
@@ -23,6 +20,8 @@ const AuthContext = createContext({
     // isSignInWithGoogle: () => Promise,
     forgotPassword: () => Promise,
     resetPassword: () => Promise,
+    reauthenticateWithCredential: () => Promise,
+    deleteUsers: () => Promise,
 })
 
 export const useAuth = () => useContext(AuthContext)
@@ -41,27 +40,29 @@ export default function AuthContextProvider({children}) {
         }
     }, [])
 
+
+    // onAuthStateChange //
     
+    onAuthStateChanged(authentication, (user) => {
+        console.log('user status change :', user);
+    } )
+
+    // Sign up //
+
     const isSignUp = async (email, password, displayName) => {
         const {user} = await createUserWithEmailAndPassword(authentication,email, password)
-        await updateProfile(user, {
+        updateProfile(user, {
             'displayName': displayName
         })
-        isSignOut()
-      
-
-
-        
-        
-        
-        // console.log(user);
-        
     }
-    
 
+     // Sign in //
+    
     const isSignIn = (email, password) => {
         return signInWithEmailAndPassword(authentication,email, password )
     }
+
+     // Forgot Password //
 
     const forgotPassword = (email) => {
         return sendPasswordResetEmail(authentication, email, {
@@ -69,24 +70,48 @@ export default function AuthContextProvider({children}) {
         })
     }
 
+    // Reset Password //
+
     const resetPassword = (oobCode, newPassword) => {
         return confirmPasswordReset(authentication,oobCode, newPassword)
     }
 
-    // const authPersistence = () => {
-    //     return setPersistence(authentication)
-    // }
-
-    // const isSignInWithGoogle = () => {
-    //     const provider = new GoogleAuthProvider()
-    //     return signInWithRedirect(authentication, provider)
-    // }
-
-
+     // Sign out //
 
     const isSignOut = () => {
         return signOut(authentication)
     }
+    
+   // Delete Account //
+
+   const deleteUsers = () => {
+
+    const user = authentication.currentUser
+
+    deleteUser(user)
+    .then(() => {
+        alert('Votre compte a été suprimé')
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+   }
+
+   // Reauthenticate With Credential //
+   const reauthenticate = () => {
+    const user = authentication.currentUser
+    const credential = promptForCredentials()
+
+    reauthenticateWithCredential(user, credential)
+    .then(() => {
+        console.log('user re-autenticated');
+    })
+    .catch((error) => {
+        console.log(error);
+    })
+   }
+
+
 
     const value = {
         currentUser,
@@ -95,7 +120,9 @@ export default function AuthContextProvider({children}) {
         isSignOut,
         // isSignInWithGoogle,
         forgotPassword,
-        resetPassword
+        resetPassword,
+        reauthenticateWithCredential,
+        deleteUsers
     }
     return <AuthContext.Provider value={value}>
         {children}

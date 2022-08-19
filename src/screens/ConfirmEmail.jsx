@@ -7,50 +7,37 @@ import { useNavigation } from '@react-navigation/native'
 // HOOKS //
 import {useForm} from 'react-hook-form'
 
-// FIREBASE //
-import { useAuth } from '../../contexts/AuthContext'
-
 // COMPONENTS //
-import CustomButton from '../../components/CustomButton'
-import CustomInputText from '../../components/CustomInputText';
-import CustomInputPassword from '../../components/CustomInputPassword';
+import CustomButton from '../components/CustomButton'
+import CustomInputText from '../components/CustomInputText';
+import CustomInputPassword from '../components/CustomInputPassword';
 
 // IMAGES //
-import image from '../../../assets/images/background.jpg'
+import image from '../../assets/images/background.jpg'
 
 
-// const useQuery = () => {
-//   const location = useLocation()
-//   return new URLSearchParams(location.search);
-// }
 
 
-const ResetPassword = () => {
-
-  // const {resetPassword} = useAuth()
-  // const query = useQuery()
-  // console.log(query.get('mode'));
-  // console.log(query.get('oobCode'))
-  // console.log(query.get('continueURL'))
-
- 
+const ConfirmEmail = () => {
 
   const {control, handleSubmit} = useForm()
-  // const [newPassword, setNewPassword] = useState('')
 
   const navigation = useNavigation()
 
 
-  const onSubmit = (data) =>{
+  const onConfirmEmail = (data) =>{
     console.warn(data)
+    navigation.navigate('Home')
+  }
+
+  const onConnected = () =>{
     navigation.navigate('SignIn')
   }
 
-  const onBackToSign = () =>{
-    navigation.navigate('SignIn')
-
+  const onResendCode = () =>{
+    console.warn("Renvoyer le code");
   }
-
+  onResendCode
 
 
   return (
@@ -61,9 +48,9 @@ const ResetPassword = () => {
           imageStyle={{opacity:.05}}
           style={styles.imageBackground}
           >
-          <SafeAreaView style={styles.resetPasswordContainer}>
+          <SafeAreaView style={styles.confirmEmailContainer}>
               <View style={styles.textContainer}>
-                <Text style={styles.text}>Modifier votre mot de passe</Text>
+                <Text style={styles.text}>Confirmer votre Email</Text>
               </View>
       
               <CustomInputText 
@@ -73,29 +60,22 @@ const ResetPassword = () => {
                   rules={{
                     required: "Veuillez entrer votre code de confirmation",
                   }}
-                  isShowIcon= {true}
                   />
 
-              <CustomInputPassword 
-                  placeholder={"Entrer votre nouveau mot de passe"}
-                  name="ressetPassword"
-                  control={control}
-                  secureTextEntry
-                  rules={{
-                    required: "Veuillez entrer un mot de passe",
-                    minLength : {value: 8, message: "8 caractères minimum"},
-                  }}
-                />
-
               <CustomButton
-                  text={"Envoyer"}
-                  onPress={handleSubmit(onSubmit)}
+                  text={"Confirmer"}
+                  onPress={handleSubmit(onConfirmEmail)}
                   />
 
+              <CustomButton
+                  text={"Renvoyer le code"}
+                  onPress={onResendCode}
+                  type="TERTIARY"
+                  />
 
               <CustomButton
-                  text="Retour à la page de connexion"
-                  onPress={onBackToSign}
+                  text="Se connecter"
+                  onPress={onConnected}
                   type="SECOND"
       />
                 
@@ -107,10 +87,10 @@ const ResetPassword = () => {
   )
 }
 
-export default ResetPassword
+export default ConfirmEmail
 
 const styles = StyleSheet.create({
-    resetPasswordContainer:{
+  confirmEmailContainer:{
       flex:1,
       width:'100%',
       padding: 15,
@@ -128,7 +108,7 @@ const styles = StyleSheet.create({
   },
 
   textContainer:{
-    padding:20,
+    padding:20
   },
 
   text: {
@@ -136,7 +116,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontFamily: 'Futura',
     fontWeight: '700' ,
-    textAlign: 'center'
+    alignItems:'center'
   },
   
   logoImg:{

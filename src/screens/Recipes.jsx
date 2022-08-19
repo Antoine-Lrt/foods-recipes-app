@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, Text, View, Image, Dimensions, ActivityIndicator } from 'react-native'
+import { FlatList, StyleSheet, Text, View, SafeAreaView, Dimensions, ActivityIndicator, StatusBar } from 'react-native'
 import React, {useEffect, useMemo, useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -13,22 +13,23 @@ import { db } from '../../utils/firebase-config';
 import { collection, doc, getDocs } from 'firebase/firestore'
 import { useAuth } from '../contexts/AuthContext'
 
+// CONSTANTS //
 
+import GLOBAL from '../constants/GLOBAL'
 
 // COMPONENTS //
-import RecipesCard from './RecipesCard'
-import CustomScreenHeader from './CustomScreenHeader'
-import CustomSearchBar from './CustomSearchBar'
-import RecipesTopCard from './RecipesTopCard'
-import { Button } from 'react-native-elements';
-import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons'
-import GLOBAL from '../constants/GLOBAL'
-import { async } from '@firebase/util'
+import RecipesCard from '../components/RecipesCard'
+import CustomScreenHeader from '../components/CustomScreenHeader'
+// import CustomSearchBar from './CustomSearchBar'
+import RecipesTopCard from '../components/RecipesTopCard'
+// import { Button } from 'react-native-elements';
+// import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons'
+// import { async } from '@firebase/util'
 
 
 
 
-const RecipesCardsList = ({}) => {
+const Recipes = ({}) => {
 
   // DIMENSION //
   const screenWidth = Dimensions.get('window').width
@@ -49,11 +50,16 @@ const RecipesCardsList = ({}) => {
   const [updated, setUpdates] = useState(recipes)
   //  loading 
   const [loading, setLoading] = useState(true);
-  // users
+  // recipes
   const [recipes, setRecipes] = useState([])
+  // category
+  const [categories, setCategories] = useState([])
+
 
 
   // FETCH DATA //
+
+  // Recipes //
   const getRecipes = async () => {
     let result = [];
     const snapshot = await getDocs(collection(db, "recipes"));
@@ -64,11 +70,25 @@ const RecipesCardsList = ({}) => {
     setRecipes([...result]);
 
   }
-
-
   useEffect(() => {
     getRecipes();
   }, [])
+
+  // Category // 
+  const getCategory = async () => {
+    let result = [];
+    const snapshot = await getDocs(collection(db, "category"));
+    snapshot.forEach((doc) => {
+      result.push(doc.data());
+    });
+
+    setCategories([...result]);
+
+  }
+  useEffect(() => {
+    getCategory();
+  }, [])
+
 
 
   const renderLoader = () => {
@@ -93,7 +113,7 @@ const RecipesCardsList = ({}) => {
 
   // RECIPES TOP CARD CAROUSEL //
 
-  const item = dataList
+  // const item = dataList
 
   // const renderItem = ({item}) => (
   //   <RecipesTopCard 
@@ -123,7 +143,8 @@ const RecipesCardsList = ({}) => {
   const {currentUser} = useAuth()
 
   return (
-    <View>
+    <SafeAreaView style={{alignItems: 'center', justifyContent: 'space-between',}}>
+      <StatusBar barStyle={'dark-content'} />
     <CustomScreenHeader
             text1={"Bonjour"}
             text2={currentUser.displayName}
@@ -140,7 +161,7 @@ const RecipesCardsList = ({}) => {
      <View style={{height:"20%"}} >
 
     <FlatList
-          data={item}
+          data={categories}
           renderItem={({item}) => (
             <RecipesTopCard 
               imageUrl={item.categoryImage}
@@ -165,7 +186,7 @@ const RecipesCardsList = ({}) => {
 <View style={{ height:"70%"}} >
 
     <FlatList
-          data={recipes}
+          data={filteredList}
           keyExtractor={item => item.id}
           renderItem={({item}) =>(
             <RecipesCard 
@@ -199,14 +220,14 @@ const RecipesCardsList = ({}) => {
           />
           )}
           ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}
-          contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:50}}
+          contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:110}}
       />
 </View>
-    </View>
+    </SafeAreaView>
 
   )
 }
 
-export default RecipesCardsList
+export default Recipes
 
 const styles = StyleSheet.create({})
