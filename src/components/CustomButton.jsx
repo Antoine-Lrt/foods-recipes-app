@@ -2,13 +2,19 @@ import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
 
-const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor }) => {
+// CONSTANTS //
+import GLOBAL from '../constants/GLOBAL'
+
+
+const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor, width, height, fontWeight, fontSize}) => {
   return (
     
     <TouchableOpacity 
         style={[
           styles.buttonContainer, 
           styles[`buttonContainer_${type}`],
+          width= {width},
+          height= {height},
           bgColor ? {borderColor: bgColor, backgroundColor: null, borderWidth: 1} : {}
           ]} 
         onPress={onPress}
@@ -17,6 +23,8 @@ const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor }) => {
         <Text style={[
           styles.buttonText, 
           styles[`buttonText_${type}`],
+          fontWeight= {fontWeight},
+          fontSize={fontSize},
           txtColor ? {color: txtColor} : {},
           ]}> {text} </Text>
     </TouchableOpacity>
@@ -30,8 +38,7 @@ const styles = StyleSheet.create({
   
 
     buttonContainer:{
-      width: 350,
-      height: 50,
+
       borderRadius: 10,
       justifyContent: 'center',
       alignItems:'center',
@@ -40,30 +47,28 @@ const styles = StyleSheet.create({
     },
 
     buttonContainer_FIRST: {
-      backgroundColor: "green"
+      backgroundColor: GLOBAL.COLOR.FIRSTCOLOR
     },
 
     buttonContainer_SECOND: {
     },
 
     buttonContainer_TERTIARY: {
-      borderColor: "green",
+      borderColor: GLOBAL.COLOR.FIRSTCOLOR,
       borderWidth:2
     },
 
     buttonText:{
-      color: "white",
+      color: GLOBAL.COLOR.WHITE,
       fontFamily: 'Futura',
-      fontWeight: '700' ,
     },
 
       buttonText_SECOND:{
-        color: "grey",
-        fontWeight: '500' ,
+        color: GLOBAL.COLOR.GREY,
     },
 
     buttonText_TERTIARY:{
-      color: "green",
+      color: GLOBAL.COLOR.FIRSTCOLOR,
   },
 
 })

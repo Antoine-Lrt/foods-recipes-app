@@ -20,6 +20,9 @@ import CustomInputText from '../components/CustomInputText';
 import CustomInputPassword from '../components/CustomInputPassword';
 import SocialSignInButton from '../components/SocialSignInButton'
 
+// CONSTANTS //
+import GLOBAL from '../constants/GLOBAL';
+
 //IMAGES
 import image from '../../assets/images/background.jpg'
 import logo from '../../assets/images/logo.png'
@@ -117,12 +120,16 @@ function SignIn() {
       <CustomButton
         text="Se Connecter"
         onPress={handleSubmit(onSignPressed)}
+        width={350}
+        height={50}
       />
 
       <CustomButton
         text="Mot de passe oublié"
         type="SECOND"
         onPress={onForgotPassword}
+        width={350}
+        height={50}
       />
    
       {/* <SocialSignInButton /> */}
@@ -131,6 +138,10 @@ function SignIn() {
         text="Pas de compte ? Créer un compte"
         onPress={onCreateAccount}
         type="SECOND"
+        width={350}
+        height={50}
+        fontWeight={'500'}
+        fontSize={GLOBAL.TEXT.TEXT}
       />
     </SafeAreaView>
   </ImageBackground>

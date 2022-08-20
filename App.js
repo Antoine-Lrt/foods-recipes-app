@@ -7,6 +7,9 @@ import * as SplashScreen from 'expo-splash-screen'
 // NAVIGATION
 import Navigation from './src/navigation/Navigation';
 
+// CONSTANTS //
+import GLOBAL from './src/constants/GLOBAL';
+
  
 
 export default function App() {
@@ -22,6 +25,6 @@ export default function App() {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: GLOBAL.COLOR.BACKGROUND,
   },
 });

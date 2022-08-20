@@ -143,7 +143,7 @@ const Recipes = ({}) => {
   const {currentUser} = useAuth()
 
   return (
-    <SafeAreaView style={{alignItems: 'center', justifyContent: 'space-between',}}>
+    <SafeAreaView style={{}}>
       <StatusBar barStyle={'dark-content'} />
     <CustomScreenHeader
             text1={"Bonjour"}
@@ -158,7 +158,7 @@ const Recipes = ({}) => {
         }} 
 
         /> */}
-     <View style={{height:"20%"}} >
+     <View style={{height:"20%", alignItems: 'flex-start'}} >
 
     <FlatList
           data={categories}
@@ -183,9 +183,10 @@ const Recipes = ({}) => {
 
      </View>   
     
-<View style={{ height:"70%"}} >
+<View style={{ height:"70%",  alignContent: 'flex-start'}} >
 
     <FlatList
+        
           data={filteredList}
           keyExtractor={item => item.id}
           renderItem={({item}) =>(
@@ -219,6 +220,7 @@ const Recipes = ({}) => {
                
           />
           )}
+          numColumns={"2"}
           ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}
           contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:110}}
       />

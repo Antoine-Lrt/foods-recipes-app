@@ -21,6 +21,11 @@ const RecipesFavoritesList = () => {
 
 
 
+ 
+
+
+
+
   // DIMENSION //
   const screenWidth = Dimensions.get('window').width
 
@@ -29,11 +34,23 @@ const RecipesFavoritesList = () => {
 
 
   // state
-  const [favorites, setFavorites] = useState(data)
+  const [list, setList] = useState(data)
+  const [favorites, setFavorites]=useState([])
+  
+
+  const addRecipe = (list) => {
+    const newFavorites = [...favorites, list]
+    setFavorites(newFavorites)
+  }
   
  
   return (
     <View>
+
+<CustomScreenHeader
+        text1={"Mes"}
+        text2={"Favoris"} 
+      />
           
     <FlatList
           data={favorites}
@@ -43,28 +60,30 @@ const RecipesFavoritesList = () => {
             title={item.title}
             level={item.level}
             imageUrl={item.image}
-            onPressAction={() => 
-              navigation.navigate('RecipesDetails', {
-                itemInfo: item,
+            // onPressAction={() => 
+            //   navigation.navigate('RecipesDetails', {
+            //     itemInfo: item,
 
-                //INGREDIENTS//
-                itemIngredients: item.ingredients,
-                itemIngredientsName: item.ingredients.map((ingredient)=>
-                  ingredient.name
-                ),
-                itemIngredientsQuantity: item.ingredients.map((ingredient)=>
-                  ingredient.quantity
-                ),
-                //STEP//
-                itemStep: item.steps,
-                itemStepIndex: item.steps.map((step) =>
-                  step.stepId
-                ),
-                itemStepDetails: item.steps.map((step) =>
-                  step.details
-                ),
+            //     //INGREDIENTS//
+            //     itemIngredients: item.ingredients,
+            //     itemIngredientsName: item.ingredients.map((ingredient)=>
+            //       ingredient.name
+            //     ),
+            //     itemIngredientsQuantity: item.ingredients.map((ingredient)=>
+            //       ingredient.quantity
+            //     ),
+            //     //STEP//
+            //     itemStep: item.steps,
+            //     itemStepIndex: item.steps.map((step) =>
+            //       step.stepId
+            //     ),
+            //     itemStepDetails: item.steps.map((step) =>
+            //       step.details
+            //     ),
 
-              })}
+            //   })}
+
+            onPressAction={(addRecipe)}
           />
           )}
           ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}

@@ -12,6 +12,9 @@ import { useAuth } from '../contexts/AuthContext'
 import CustomScreenHeader from '../components/CustomScreenHeader'
 import CustomButton from '../components/CustomButton'
 
+// CONSTANTS //
+import GLOBAL from '../constants/GLOBAL'
+
 
 const Profil = () => {
 
@@ -53,6 +56,10 @@ const Profil = () => {
         text="Se déconnecter"
         onPress={onSigneOut}
         type="SECOND"
+        width={350}
+        height={50}
+        fontWeight={'500'}
+        fontSize={GLOBAL.TEXT.TEXT}
       />
 
 
@@ -60,6 +67,10 @@ const Profil = () => {
         text="Supprimer mon compte"
         onPress={onDeleteUser}
         type="SECOND"
+        width={350}
+        height={50}
+        fontWeight={'500'}
+        fontSize={GLOBAL.TEXT.TEXT}
       />  
         </>
     </SafeAreaView>

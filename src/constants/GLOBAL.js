@@ -1,11 +1,11 @@
 module.exports = {
     COLOR: {
-      BACKGROUND: '#f2f2f2',
+      BACKGROUND: '#edf2f4',
       WHITE: '#FFF',
-      BLACK: '#0f2029',
-      GREY: '#dad7cd',
-      FIRSTCOLOR: '#6a994e',
-      SECONDCOLOR: '#d3eb74',
+      BLACK: '#2b2d42',
+      GREY: '#8d99ae',
+      FIRSTCOLOR: '#d90429',
+      SECONDCOLOR: '#ef233c',
       THIRDCOLOR: '#E5ECAF',
       INPUT_BORDER_VALIDE: '#e8e8e8',
       INPUT_BORDER_ERROR: '#ff0000',

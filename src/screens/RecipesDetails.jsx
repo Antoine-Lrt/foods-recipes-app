@@ -18,7 +18,7 @@ import GLOBAL from '../constants/GLOBAL'
 
 
 
-const RecipesDetails = ({handleFavouritesClick}) => {
+const RecipesDetails = () => {
 
   
   
@@ -38,33 +38,38 @@ const RecipesDetails = ({handleFavouritesClick}) => {
 
   // CHANGE ICON COLOR WHEN ADD TO FAVORITES
 
-  const [colorIcon, setColorIcon] = useState()
+  const [colorIcon, setColorIcon] = useState(GLOBAL.COLOR.WHITE)
+  const [favoritesList, setFavoritesList] =useState([])
+
+  const handleFav = (e) => {
+    setFavoritesList(preState => [...preState, e])
+  }
 
 
 
-  // const changeIconColor = (colorIcon) => {
-  //   setColorIcon(colorIcon)
-  // }
+  const changeIconColor = (colorIcon) => {
+    setColorIcon(colorIcon)
+  }
 
-  // const addToFavoriteColor = () => {
+  const addToFavoriteColor = () => {
     
-  //   if(colorIcon == GLOBAL.COLOR.WHITE) {
-  //     changeIconColor(GLOBAL.COLOR.FIRSTCOLOR);
-  //     console.warn('Add favorites')
-  //   }
-  //  else {
-  //    changeIconColor(GLOBAL.COLOR.WHITE)
-  //    console.warn('Delete favorites')
-  //  }
+    if(colorIcon == GLOBAL.COLOR.WHITE) {
+      changeIconColor(GLOBAL.COLOR.FIRSTCOLOR);
+      console.warn('Add favorites')
+    }
+   else {
+     changeIconColor(GLOBAL.COLOR.WHITE)
+     console.warn('Delete favorites')
+   }
 
-  // }
+  }
 
   
 
 
   return (
     <View style={styles.recipesDetailsContainer}>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={'dark-content'} />
         <ImageBackground 
           source={{uri: route.params.itemInfo.image}} 
           resizeMode="cover" 
@@ -81,15 +86,7 @@ const RecipesDetails = ({handleFavouritesClick}) => {
                       }}                      
                       />
           </TouchableOpacity>
-          <TouchableOpacity style={{width:30,}} onPress={handleFavouritesClick}>
-            <FontAwesomeIcon 
-                      icon={faHeart} 
-                      size={30}
-                      style={{
-                        color: colorIcon,
-                        alignItems: 'center'
-                      }}                      
-                      />
+          <TouchableOpacity style={{width:30,}} onPress={addToFavoriteColor}>
           </TouchableOpacity>
           </View>
             <LinearGradient
@@ -102,7 +99,6 @@ const RecipesDetails = ({handleFavouritesClick}) => {
               <Text style={styles.cardImageTitle}>{route.params.itemInfo.title}</Text>
             </View>
         </ImageBackground>
-        <ScrollView style={styles.recipesInfosContainer}>
           <View style={styles.recipesInfos}>
             <RecipesInfosTag 
                 details={"Catégorie"}
@@ -124,6 +120,7 @@ const RecipesDetails = ({handleFavouritesClick}) => {
 
             />
           </View>
+        <ScrollView style={styles.recipesInfosContainer}>
            
            {/* INGREDIENTS  */}
               <Text style={styles.recipesDetailsTitle}>Ingrédients</Text>
@@ -209,6 +206,7 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
+    flexWrap: 'wrap'
     
   },
 

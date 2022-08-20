@@ -15,6 +15,9 @@ import CustomButton from '../components/CustomButton'
 import CustomInputText from '../components/CustomInputText';
 import CustomInputPassword from '../components/CustomInputPassword';
 
+// COSNTANTS //
+import GLOBAL from '../constants/GLOBAL'
+
 // IMAGES //
 import image from '../../assets/images/background.jpg'
 
@@ -90,6 +93,8 @@ const ResetPassword = () => {
               <CustomButton
                   text={"Envoyer"}
                   onPress={handleSubmit(onSubmit)}
+                  width={350}
+                  height={50}
                   />
 
 
@@ -97,6 +102,10 @@ const ResetPassword = () => {
                   text="Retour à la page de connexion"
                   onPress={onBackToSign}
                   type="SECOND"
+                  width={350}
+                  height={50}
+                  fontWeight={'500'}
+                  fontSize={GLOBAL.TEXT.TEXT}
       />
                 
         </SafeAreaView>

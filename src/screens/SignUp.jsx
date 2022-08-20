@@ -18,9 +18,12 @@ import CustomInputText from '../components/CustomInputText';
 import CustomInputPassword from '../components/CustomInputPassword';
 import SocialSignInButton from '../components/SocialSignInButton'
 
+// CONSTANTS //
+import GLOBAL from '../constants/GLOBAL'
+
 //IMAGES
 import image from '../../assets/images/background.jpg'
-import GLOBAL from '../constants/GLOBAL'
+import { db } from '../../utils/firebase-config'
 
 
 
@@ -40,9 +43,15 @@ const SignUp = () => {
 
   const mounted = useMounted()
 
+   // Add user to Firestore Db //
+
+   
+
+
   const onSignUpPressed = (data) =>{
     console.log(data)
     isSignUp(email, password, displayName)
+    newUserData(pseudo, favorites)
     .then((res) => {
       console.log(res);
       })
@@ -68,10 +77,9 @@ const SignUp = () => {
     console.warn("Politique de Confidentialité");
   }
 
-  const onCookiesUtilisationst = () =>{
-    console.warn("Utilisation de Cookies");
-  }
+  
 
+ 
 
 
 
@@ -136,6 +144,10 @@ const SignUp = () => {
                 <CustomButton
                   text={"Créer un compte"}
                   onPress={handleSubmit(onSignUpPressed)}
+                  width={350}
+                  height={50}
+                  fontWeight={'700'}
+                  fontSize={GLOBAL.TEXT.H3}
                   />
 
                 {/* <SocialSignInButton /> */}
@@ -144,6 +156,10 @@ const SignUp = () => {
                   text={'Déja un compte ? Se connecter'}
                   onPress={onSigneIn}
                   type={'SECOND'}
+                  width={350}
+                  height={50}
+                  fontWeight={'500'}
+                  fontSize={GLOBAL.TEXT.TEXT}
                   />
                 <Text style={styles.textConditions}>
                   En vous inscrivant, vous acceptez les <Text style={styles.textConditionsLink} onPress={onTermOfUser}>Conditions d'Utilisation</Text> et la <Text style={styles.textConditionsLink} onPress={onPrivacyPolicy}>Politique de Confidentialité</Text>.
