@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity, ImageBackground, View, Dimensions } from 'react-native'
-import React from 'react'
+import React, {useContext} from 'react'
 
 // COMPONANTS //
 import CustomButton from '../components/CustomButton'
@@ -7,7 +7,9 @@ import CustomButton from '../components/CustomButton'
 // CONSTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
+
 const RecipesCard = ({title, category, level, imageUrl, onPressAction, ingredients, step}) => {
+
   
   return (
     // <TouchableOpacity 
@@ -36,13 +38,7 @@ const RecipesCard = ({title, category, level, imageUrl, onPressAction, ingredien
                   </View>
             </ImageBackground> 
         </TouchableOpacity>
-        <CustomButton
-          width={170}
-          height={40}
-          text={'Ajouter aux favoris'}
-          fontWeight={'500'}
-          fontSize={GLOBAL.TEXT.TEXT}
-        />
+       
     </View>
   )
 }

@@ -1,3 +1,4 @@
+import { disabled } from 'deprecated-react-native-prop-types/DeprecatedTextPropTypes'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
@@ -6,7 +7,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import GLOBAL from '../constants/GLOBAL'
 
 
-const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor, width, height, fontWeight, fontSize}) => {
+const CustomButton = ({text, onPress, disabled, type= "FIRST", bgColor, txtColor, width, height, fontWeight, fontSize}) => {
   return (
     
     <TouchableOpacity 
@@ -17,7 +18,8 @@ const CustomButton = ({text, onPress, type= "FIRST", bgColor, txtColor, width, h
           height= {height},
           bgColor ? {borderColor: bgColor, backgroundColor: null, borderWidth: 1} : {}
           ]} 
-        onPress={onPress}
+          onPress={onPress}
+          disabled={disabled}
         
         >
         <Text style={[
