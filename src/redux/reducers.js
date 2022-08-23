@@ -5,11 +5,12 @@ const initialState = {
     recipes: [],
     categories: [],
     favList: [],
-    users: []
+    users: [],
 }
 
 export default function (state = initialState, action){
     switch(action.type){
+        
 
         case Action.GET_RECIPES:
             return {
@@ -26,10 +27,10 @@ export default function (state = initialState, action){
                 ...state,
                 favList: [...state.favList, action.payload]
             }
-        case Action.REMOVE_FAV:
+        case Action.REMOVE_FROM_FAVORITES:
             return {
                 ...state,
-                favList: state.favList.filter((recipe) => recipe.id !== action.payload)
+                favList: state.favList.filter((recipe) => recipe.id !== action.payload.id)
             }
         default:
             return state

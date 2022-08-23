@@ -36,7 +36,7 @@ const Recipes = (props) => {
 
   const { recipeReducer, fetchRecipes, fetchCategory,  addToFavorites, removeFromFavorites} = props;
 
-  const { recipes, categories , favorite } = recipeReducer;
+  const { recipes, categories , favList } = recipeReducer;
 
   const [currentRecipe, setCurrentRecipe] = useState(undefined)
 
@@ -64,11 +64,13 @@ const Recipes = (props) => {
     removeFromFavorites(recipe)
   }
 
-  const ifExist = (recipe) => {
-    if(favorite.filter(item => item.id === recipe.id).length > 0) {
+  const isExist = (recipe) => {
+    if(favList.filter(item => item.title === recipe.title).length > 0) {
       return true
     }
-    return false
+    else {
+      return false
+    }
 }
 
   // DIMENSION //
@@ -89,7 +91,7 @@ const Recipes = (props) => {
   // filter state
   // const [updated, setUpdates] = useState(recipes)
   //  loading 
-  // const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   // // recipes
   // const [recipes, setRecipes] = useState([])
   // // category
@@ -131,12 +133,7 @@ const Recipes = (props) => {
   // }, [])
 
 
-  // // LOADER //
-  // const renderLoader = () => {
-  //   return loading ? (
-  //     <ActivityIndicator />
-  //   ) : null
-  // }
+ 
 
   // // SEARCHBAR //
   // const searchRecipe = (text) => {
@@ -152,6 +149,7 @@ const Recipes = (props) => {
 
   // BUTTON FILTER //
   const filteredList = useMemo(
+    
     () => {
       if (category === 'Toutes les recettes') return recipes
       return recipes.filter(item => category === item.category)
@@ -184,7 +182,7 @@ const Recipes = (props) => {
 
         /> */}
      <View style={{height:"20%", alignItems: 'flex-start'}} >
-
+      
     <FlatList
           data={categories}
           renderItem={({item}) => (
@@ -208,8 +206,7 @@ const Recipes = (props) => {
 
      </View>   
     
-<View style={{ height:"70%",  alignContent: 'flex-start'}} >
-
+<View style={{ height:"70%",  alignContent: 'flex-start'}} >    
     <FlatList
           data={filteredList}
           keyExtractor={item => item.id}
@@ -243,16 +240,28 @@ const Recipes = (props) => {
 
                   })}   
                 />
-              {/* {ifExist(item ? */}
+              {isExist(item) ?
               <CustomButton
                 width={170}
                 height={40}
-                text={'Ajouter aux favoris'}
+                text={'Suprimer des favoris'}
+                fontWeight={'500'}
+                fontSize={GLOBAL.TEXT.TEXT}
+                onPress={() => onPressRemoveFromFavorites(item)}
+                type={'FOURTH'}
+              /> 
+              :
+              <CustomButton
+                width={170}
+                height={40}
+                text={'Ajouter aux favoris '}
                 fontWeight={'500'}
                 fontSize={GLOBAL.TEXT.TEXT}
                 onPress={() => onPressAddToFavorites(item)}
+                type={'FIRST'}
               /> 
-             
+              }
+        
             </View>
            
           

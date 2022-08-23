@@ -99,7 +99,7 @@ const RecipesDetails = () => {
               <Text style={styles.cardImageTitle}>{route.params.itemInfo.title}</Text>
             </View>
         </ImageBackground>
-          <View style={styles.recipesInfos}>
+          <View style={styles.recipesDetails}>
             <RecipesInfosTag 
                 details={"Catégorie"}
                 text={route.params.itemInfo.category}
@@ -199,22 +199,23 @@ const styles = StyleSheet.create({
 
   // RECIPES DETAILS
 
-  recipesInfosContainer:{
-  },
-  
-  recipesInfos:{
+  recipesDetails:{
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    // backgroundColor: GLOBAL.COLOR.GREY
     
   },
-
- 
-
-
+  
+  
+  
+  recipesInfosContainer:{
+  },
+  
+  
   // INGREDIENTS //
-
+  
   recipesDetailsTitle:{
     fontSize: GLOBAL.TEXT.H2,
     fontFamily: GLOBAL.TEXT.FONTFAMILY,

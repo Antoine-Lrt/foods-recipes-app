@@ -2,8 +2,6 @@ import { FlatList, StyleSheet, Text, View, Image, Dimensions, SafeAreaView } fro
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-import { connect } from 'react-redux'
-import { fetchRecipes, addToFavorites, removeFromFavorites  } from '../redux/actions'
 import { BASE_URL } from '../../utils/baseUrl';
 
 
@@ -21,9 +19,12 @@ import CustomButton from '../components/CustomButton'
 import CustomScreenHeader from '../components/CustomScreenHeader'
 
 
-
 // CONSTANTS //
 import GLOBAL from '../constants/GLOBAL'
+
+// REDUX //
+import { connect } from 'react-redux'
+import { removeFromFavorites  } from '../redux/actions'
 
 
 
@@ -38,9 +39,12 @@ const RecipesFavoritesList = (props) => {
 
 
 
-  const { recipeReducer} = props
-  const { favList} = recipeReducer
+  const { recipeReducer, removeFromFavorites} = props
+  const { favList } = recipeReducer
 
+  const onPressRemoveFromFavorites = (recipes) => {
+    removeFromFavorites(recipes)
+  }
   
  
   return (
@@ -91,7 +95,7 @@ const RecipesFavoritesList = (props) => {
                 text={'Suprimer des favoris'}
                 fontWeight={'500'}
                 fontSize={GLOBAL.TEXT.TEXT}
-                onPress={() => onPressAddToFavorites(item)}
+                onPress={() => onPressRemoveFromFavorites(item)}
               /> 
 
             
@@ -117,7 +121,7 @@ const mapStateToProps = (state) => ({
   recipeReducer: state.recipeReducer
 })
 
-const FavScreen = connect(mapStateToProps, { fetchRecipes, addToFavorites, removeFromFavorites })(RecipesFavoritesList)
+const FavScreen = connect(mapStateToProps, {removeFromFavorites })(RecipesFavoritesList)
 
 export default FavScreen
 

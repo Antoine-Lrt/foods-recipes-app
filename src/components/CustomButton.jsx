@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     buttonContainer_FIRST: {
       backgroundColor: GLOBAL.COLOR.FIRSTCOLOR
     },
+    
 
     buttonContainer_SECOND: {
     },
@@ -58,6 +59,10 @@ const styles = StyleSheet.create({
     buttonContainer_TERTIARY: {
       borderColor: GLOBAL.COLOR.FIRSTCOLOR,
       borderWidth:2
+    },
+
+    buttonContainer_FOURTH: {
+      backgroundColor: GLOBAL.COLOR.GREY
     },
 
     buttonText:{

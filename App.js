@@ -15,8 +15,8 @@ import AuthContextProvider from './src/contexts/AuthContext';
 // REDUX //
 
 import {Provider} from 'react-redux'
-import { store } from './src/redux/store';
-
+import { store, appPersist } from './src/redux/store';
+import { PersistGate } from 'redux-persist/integration/react'
 
 
  
@@ -24,11 +24,13 @@ import { store } from './src/redux/store';
 export default function App() {
   return (
     <Provider store={store}>
+      <PersistGate loading={null} persistor={appPersist}>
       <AuthContextProvider>
           <View style={styles.root}>
             <Navigation />
           </View>
       </AuthContextProvider>
+      </PersistGate>
     </Provider>
   );
 }

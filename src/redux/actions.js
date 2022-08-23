@@ -9,14 +9,15 @@ export const Action = {
     GET_CATEGORY : 'fetch_categories',
     ADD_TO_FAVORITES: 'add_to_fav',
     REMOVE_FROM_FAVORITES: 'remove_fav',
-    ON_ERROR: 'on_error'
+    ON_ERROR: 'on_error',
+
 }
 
 export const fetchRecipes = () => {
-
+    
     try{
         return async(dispatch) => {
-            const response = await axios.get(`${BASE_URL}/recipes`);
+            const response = await axios.get(`${BASE_URL}/recipes`)
 
              console.log(response);
 
@@ -44,6 +45,7 @@ export const fetchCategory = () => {
 
     try{
         return async(dispatch) => {
+            
             const response = await axios.get(`${BASE_URL}/category`);
 
              console.log(response);
@@ -87,3 +89,5 @@ export const removeFromFavorites = (recipe) => (dispatch) =>{
     })
     
 }
+
+

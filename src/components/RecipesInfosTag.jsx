@@ -4,20 +4,21 @@ import React from 'react'
 // COSNTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
-const RecipesInfosTag = ({text, details, time }) => {
+const RecipesDetailsTag = ({text, details, time }) => {
   return (
-   
-      <Text style={styles.tagTxt}>{details}:{text} {time}</Text>
+    
+      <Text style={styles.tagTxt}>{details} : {text} {time}</Text>
   
   )
 }
 
-export default RecipesInfosTag
+export default RecipesDetailsTag
 
 const styles = StyleSheet.create({
    
 
     tagTxt:{
+        margin: 2,
         color:GLOBAL.COLOR.FIRSTCOLOR,
         fontSize: GLOBAL.TEXT.SMALL_TEXT,
         textTransform: 'uppercase',
