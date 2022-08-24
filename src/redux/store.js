@@ -1,6 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer} from 'redux-persist'
 
 
@@ -9,7 +10,6 @@ import reducer from './reducers'
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['favorites']
 }
 
 const rootReducer = combineReducers({
@@ -18,6 +18,7 @@ const rootReducer = combineReducers({
 
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
-const appPersist = persistStore(store)
+const persistor = persistStore(store)
 
-export { store, appPersist }
+
+export  { store, persistor }

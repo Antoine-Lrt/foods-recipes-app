@@ -13,25 +13,23 @@ import GLOBAL from './src/constants/GLOBAL';
 import AuthContextProvider from './src/contexts/AuthContext';
 
 // REDUX //
-
 import {Provider} from 'react-redux'
-import { store, appPersist } from './src/redux/store';
+import { store, persistor } from './src/redux/store';
 import { PersistGate } from 'redux-persist/integration/react'
 
 
- 
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={appPersist}>
-      <AuthContextProvider>
+    <AuthContextProvider>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
           <View style={styles.root}>
             <Navigation />
           </View>
-      </AuthContextProvider>
-      </PersistGate>
-    </Provider>
+        </PersistGate>
+      </Provider>
+    </AuthContextProvider>
   );
 }
 
