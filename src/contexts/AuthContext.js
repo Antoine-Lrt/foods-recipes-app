@@ -7,7 +7,8 @@ import { createUserWithEmailAndPassword ,
         confirmPasswordReset,
         updateProfile,
         deleteUser,
-        reauthenticateWithCredential
+        reauthenticateWithCredential,
+        ActionCodeSettings
 } from "firebase/auth";
 
 
@@ -44,7 +45,7 @@ export default function AuthContextProvider({children}) {
     // onAuthStateChange //
     
     onAuthStateChanged(authentication, (user) => {
-        console.log('user status change :', user);
+        // console.log('user status change :', user);
     } )
 
     // Sign up //
@@ -63,9 +64,14 @@ export default function AuthContextProvider({children}) {
     }
 
      // Forgot Password //
+    
+    const  actionCodeSettings = {
+        uri: 'https://github.com',
+        handleCodeInApp: false
+    }
 
     const forgotPassword = (email) => {
-        return sendPasswordResetEmail(authentication, email, {
+        return sendPasswordResetEmail(authentication, email, actionCodeSettings,   {
             url: 'https://google.fr'
         })
     }
@@ -93,7 +99,7 @@ export default function AuthContextProvider({children}) {
         alert('Votre compte a été suprimé')
     })
     .catch((error) => {
-        console.log(error);
+        // console.log(error);
     })
    }
 
@@ -104,10 +110,10 @@ export default function AuthContextProvider({children}) {
 
     reauthenticateWithCredential(user, credential)
     .then(() => {
-        console.log('user re-autenticated');
+        // console.log('user re-autenticated');
     })
     .catch((error) => {
-        console.log(error);
+        // console.log(error);
     })
    }
 

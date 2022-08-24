@@ -12,8 +12,7 @@ import { useAuth } from '../contexts/AuthContext';
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import ConfirmEmail from '../screens/ConfirmEmail'
-import ForgotPassword from '../screens/ResetPassword';
-import ResetPassword from '../screens/ResetPassword'
+import ForgotPassword from '../screens/ForgotPassword'
 import TabBar from './TabBar';
 import RecipesDetails from '../screens/RecipesDetails'
 
@@ -32,7 +31,6 @@ const Navigation = () => {
         {!currentUser && <Stack.Screen name='SignUp' component={SignUp} options={{gestureEnabled: false}}/>}
         {!currentUser && <Stack.Screen name='ConfirmEmail' component={ConfirmEmail} options={{gestureEnabled: false}}/>}
         {!currentUser &&<Stack.Screen name='ForgotPassword' component={ForgotPassword} options={{gestureEnabled: false}}/>}
-        {!currentUser && <Stack.Screen name='ResetPassword' component={ResetPassword} options={{gestureEnabled: false}}/>}
         {currentUser &&<Stack.Screen name='TabBar' component={TabBar} options={{gestureEnabled: false}}/>}
         {currentUser &&<Stack.Screen name='RecipesDetails' component={RecipesDetails}/>}
       </Stack.Navigator>

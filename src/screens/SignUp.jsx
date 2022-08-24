@@ -23,7 +23,7 @@ import GLOBAL from '../constants/GLOBAL'
 
 //IMAGES
 import image from '../../assets/images/background.jpg'
-import { db } from '../../utils/firebase-config'
+// import { db } from '../../utils/firebase-config'
 
 
 
@@ -49,14 +49,14 @@ const SignUp = () => {
 
 
   const onSignUpPressed = (data) =>{
-    console.log(data)
+    // console.log(data)
     isSignUp(email, password, displayName)
     newUserData(pseudo, favorites)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       switch(error.code) {
         case "auth/email-already-in-use" : alert("Un compte utilise déjà cet email");
         break
@@ -70,11 +70,11 @@ const SignUp = () => {
   }
 
   const onTermOfUser = () =>{
-    console.warn("Conditions d'Utilisation");
+    // console.warn("Conditions d'Utilisation");
   }
 
   const onPrivacyPolicy = () =>{
-    console.warn("Politique de Confidentialité");
+    // console.warn("Politique de Confidentialité");
   }
 
   

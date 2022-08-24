@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import { StatusBar } from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft ,faHeart, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft ,faHeart} from '@fortawesome/free-solid-svg-icons'
 import { useNavigation } from '@react-navigation/native'
 import { useRoute } from '@react-navigation/native'
 
@@ -39,7 +39,7 @@ const RecipesDetails = () => {
   // CHANGE ICON COLOR WHEN ADD TO FAVORITES
 
   const [colorIcon, setColorIcon] = useState(GLOBAL.COLOR.WHITE)
-  const [favoritesList, setFavoritesList] =useState([])
+
 
   const handleFav = (e) => {
     setFavoritesList(preState => [...preState, e])
@@ -55,11 +55,11 @@ const RecipesDetails = () => {
     
     if(colorIcon == GLOBAL.COLOR.WHITE) {
       changeIconColor(GLOBAL.COLOR.FIRSTCOLOR);
-      console.warn('Add favorites')
+      // console.warn('Add favorites')
     }
    else {
      changeIconColor(GLOBAL.COLOR.WHITE)
-     console.warn('Delete favorites')
+    //  console.warn('Delete favorites')
    }
 
   }
@@ -77,16 +77,34 @@ const RecipesDetails = () => {
           >
           <View style={{ marginTop: 40, padding: 15, flexDirection:'row', justifyContent: 'space-between' }}>
           <TouchableOpacity style={{width:30,}} onPress={() => navigation.goBack()}>
+            <View style={{
+              backgroundColor: GLOBAL.COLOR.BACKGROUND_TRANSPARENT,
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 35,
+              height: 35,
+              borderRadius:50
+              }}>
+
             <FontAwesomeIcon 
                       icon={faArrowLeft} 
-                      size={30}
+                      size={20}
                       style={{
                         color: GLOBAL.COLOR.WHITE,
                         alignItems: 'center'
                       }}                      
                       />
+            </View>
           </TouchableOpacity>
           <TouchableOpacity style={{width:30,}} onPress={addToFavoriteColor}>
+            <FontAwesomeIcon 
+                      icon={faHeart} 
+                      size={30}
+                      style={{
+                        color: colorIcon,
+                        alignItems: 'center'
+                      }}                      
+              />
           </TouchableOpacity>
           </View>
             <LinearGradient

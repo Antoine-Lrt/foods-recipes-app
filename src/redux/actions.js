@@ -48,7 +48,7 @@ export const fetchCategory = () => {
             
             const response = await axios.get(`${BASE_URL}/category`);
 
-             console.log(response);
+            //  console.log(response);
 
             if(response.data){
                 dispatch({

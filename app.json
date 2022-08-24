@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "foods-react-native-App",
+    "name": "food-react-native-App",
+    "scheme": "foodApp",
     "slug": "foods-react-native-App",
     "version": "1.0.0",
     "orientation": "portrait",

@@ -1,5 +1,6 @@
 import { StyleSheet, Text, SafeAreaView } from 'react-native'
 import React from 'react'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 
 // NAVIGATION //
@@ -29,10 +30,21 @@ const Profil = () => {
     navigation.navigate('SignIn')
   }
 
+  const clearAll = async () => {
+    try {
+      await AsyncStorage.clear()
+      console.log('AsyncStorage Cleared');
+    }catch(err) {
+      console.log(err);
+    }
+  }
+
   const onDeleteUser = () => {
     reauthenticateWithCredential()
     deleteUsers()
     navigation.navigate('SignIn')
+    clearAll()
+    
   }
 
 

@@ -26,7 +26,7 @@ const ConfirmEmail = () => {
 
 
   const onConfirmEmail = (data) =>{
-    console.warn(data)
+    // console.warn(data)
     navigation.navigate('Home')
   }
 
@@ -35,7 +35,7 @@ const ConfirmEmail = () => {
   }
 
   const onResendCode = () =>{
-    console.warn("Renvoyer le code");
+    // console.warn("Renvoyer le code");
   }
   onResendCode
 

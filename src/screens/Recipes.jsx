@@ -38,23 +38,23 @@ const Recipes = (props) => {
 
   const { recipes, categories , favList } = recipeReducer;
 
-  const [currentRecipe, setCurrentRecipe] = useState(undefined)
+  // const [currentRecipe, setCurrentRecipe] = useState(undefined)
 
   useEffect(() => {
     fetchRecipes()
     fetchCategory()
   }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    if(recipes.length > 0){
-      setCurrentRecipe(recipes[0])
-    }
-  }, [recipes])
+  //   if(recipes.length > 0){
+  //     setCurrentRecipe(recipes[0])
+  //   }
+  // }, [recipes])
 
-  const didHandleCurrentRecipe = (recipe) => {
-    setCurrentRecipe(recipe)
-  }
+  // const didHandleCurrentRecipe = (recipe) => {
+  //   setCurrentRecipe(recipe)
+  // }
 
   const onPressAddToFavorites = (recipe) => {
     addToFavorites(recipe)
@@ -267,7 +267,11 @@ const Recipes = (props) => {
           
           )}
           numColumns={"2"}
-          ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}
+          ListEmptyComponent={
+          <View style={{alignSelf: 'center', marginTop: 100}}>
+            <Text style={{fontSize: GLOBAL.TEXT.H3, }}> Aucune recettes trouvées</Text>
+          </View>
+          }
           contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:110}}
       />
 </View>

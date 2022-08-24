@@ -56,6 +56,8 @@ const RecipesFavoritesList = (props) => {
       />
 
 
+
+  <View style = {{ alignItems: 'center',}}>
       <FlatList
           data={favList}
           keyExtractor={item => item.id}
@@ -95,17 +97,22 @@ const RecipesFavoritesList = (props) => {
                 text={'Suprimer des favoris'}
                 fontWeight={'500'}
                 fontSize={GLOBAL.TEXT.TEXT}
+                type={'FOURTH'}
                 onPress={() => onPressRemoveFromFavorites(item)}
               /> 
 
             
           </View>
           )}
-          ListEmptyComponent={<Text style={{fontSize: GLOBAL.TEXT.H3}}> Aucune recettes trouvées</Text>}
+          ListEmptyComponent={
+          <View style={{alignSelf: 'center', marginTop: 200}}>
+            <Text style={{fontSize: GLOBAL.TEXT.H3, }}> Aucune recettes trouvées</Text>
+          </View>
+          }
           numColumns={"2"}
-          contentContainerStyle={{width: screenWidth, alignItems: 'center', paddingBottom:260}}
+          contentContainerStyle={{width: screenWidth, alignItems: "center", paddingBottom:260 ,}}
       />
- 
+  </View>
 
       </SafeAreaView>
 
@@ -121,7 +128,7 @@ const mapStateToProps = (state) => ({
   recipeReducer: state.recipeReducer
 })
 
-const FavScreen = connect(mapStateToProps, {removeFromFavorites })(RecipesFavoritesList)
+const FavScreen = connect(mapStateToProps, {removeFromFavorites})(RecipesFavoritesList)
 
 export default FavScreen
 

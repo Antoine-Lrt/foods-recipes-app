@@ -1,9 +1,10 @@
 module.exports = {
     COLOR: {
       BACKGROUND: '#edf2f4',
+      BACKGROUND_TRANSPARENT: 'rgba(215, 4, 39, 0.60)',
       WHITE: '#FFF',
       BLACK: '#2b2d42',
-      GREY: '#8d99ae',
+      GREY: '#8e9aaf',
       FIRSTCOLOR: '#d90429',
       SECONDCOLOR: '#ef233c',
       THIRDCOLOR: '#E5ECAF',

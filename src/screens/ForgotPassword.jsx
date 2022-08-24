@@ -8,16 +8,16 @@ import { useNavigation } from '@react-navigation/native'
 import {useForm} from 'react-hook-form'
 
 // COMPONENTS //
-import CustomButton from '../../components/CustomButton'
-import CustomInputText from '../../components/CustomInputText';
-import CustomInputPassword from '../../components/CustomInputPassword';
+import CustomButton from '../components/CustomButton'
+import CustomInputText from '../components/CustomInputText';
+import CustomInputPassword from '../components/CustomInputPassword';
 
 // CONSTANTS //
 import GLOBAL from '../constants/GLOBAL'
 
 // IMAGES //
-import image from '../../../assets/images/background.jpg'
-import { useAuth } from '../../contexts/AuthContext'
+import image from '../../assets/images/background.jpg'
+import { useAuth } from '../contexts/AuthContext'
 
 
 

@@ -53,7 +53,7 @@ function SignIn() {
       navigation.navigate('TabBar')
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       switch(error.code) {
         case 'auth/user-not-found': alert("Aucun utilisateur trouvé");
         break

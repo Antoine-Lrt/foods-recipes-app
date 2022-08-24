@@ -12,7 +12,7 @@ import {
 
 // Authentication
 import {getAuth,} from "firebase/auth"
-import {getFirestore} from "firebase/firestore";
+// import {getFirestore} from "firebase/firestore";
 
 
 
@@ -35,5 +35,5 @@ const firebaseConfig = {
   // Export auth //
   export const authentication = getAuth(app)
 
-  export const db = getFirestore(app)
+  // export const db = getFirestore(app)
 
