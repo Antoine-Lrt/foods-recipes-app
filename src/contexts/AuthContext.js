@@ -10,6 +10,7 @@ import { createUserWithEmailAndPassword ,
         reauthenticateWithCredential,
         ActionCodeSettings
 } from "firebase/auth";
+import * as Linking from 'expo-linking';
 
 
 
@@ -64,9 +65,13 @@ export default function AuthContextProvider({children}) {
     }
 
      // Forgot Password //
+
+     const redirectUrl = Linking.createURL('exp://192.168.1.15:19000');
+       
+    console.log(redirectUrl);
     
     const  actionCodeSettings = {
-        uri: 'https://github.com',
+        uri: redirectUrl,
         handleCodeInApp: false
     }
 

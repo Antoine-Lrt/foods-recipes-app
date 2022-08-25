@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: "black",
+    color: GLOBAL.COLOR.BLACK,
     fontSize: 25,
     fontFamily: 'Futura',
     fontWeight: '700' ,
@@ -150,15 +150,15 @@ const styles = StyleSheet.create({
   textConditions: {
     marginTop: 30,
     width: 300,
-    color: "black",
+    color: GLOBAL.COLOR.BLACK,
     fontSize: 10,
     fontStyle: 'italic' ,
-    fontFamily: 'Futura',
+    fontFamily: GLOBAL.TEXT.FONTFAMILY,
     fontWeight: 'light' ,
     
   },
 
   textConditionsLink: {
-    color: "green",
+    color: GLOBAL.COLOR.FIRSTCOLOR,
   }
 })

@@ -96,16 +96,7 @@ const RecipesDetails = () => {
                       />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity style={{width:30,}} onPress={addToFavoriteColor}>
-            <FontAwesomeIcon 
-                      icon={faHeart} 
-                      size={30}
-                      style={{
-                        color: colorIcon,
-                        alignItems: 'center'
-                      }}                      
-              />
-          </TouchableOpacity>
+          
           </View>
             <LinearGradient
                     colors={['transparent','rgba(0,0,0,1)']}

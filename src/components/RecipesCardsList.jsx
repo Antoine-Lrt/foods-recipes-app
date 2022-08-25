@@ -5,8 +5,8 @@ import { useNavigation } from '@react-navigation/native'
 
 
 // DATA //
-import data from '../data/data.json'
-import dataList from '../data/category.json'
+// import data from '../data/data.json'
+// import dataList from '../data/category.json'
 
 // FIREBASE //
 import { db } from '../../utils/firebase-config';
@@ -20,10 +20,8 @@ import RecipesCard from './RecipesCard'
 import CustomScreenHeader from './CustomScreenHeader'
 import CustomSearchBar from './CustomSearchBar'
 import RecipesTopCard from './RecipesTopCard'
-import { Button } from 'react-native-elements';
-import { faExpeditedssl } from '@fortawesome/free-brands-svg-icons'
 import GLOBAL from '../constants/GLOBAL'
-import { async } from '@firebase/util'
+
 
 
 
@@ -105,7 +103,6 @@ const RecipesCardsList = ({}) => {
 
   // BUTTON FILTER //
   
-  // Keep a category of the current selected category //
 
   const filteredList = useMemo(
     () => {

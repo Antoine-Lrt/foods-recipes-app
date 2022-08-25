@@ -161,9 +161,9 @@ const SignUp = () => {
                   fontWeight={'500'}
                   fontSize={GLOBAL.TEXT.TEXT}
                   />
-                <Text style={styles.textConditions}>
+                {/* <Text style={styles.textConditions}>
                   En vous inscrivant, vous acceptez les <Text style={styles.textConditionsLink} onPress={onTermOfUser}>Conditions d'Utilisation</Text> et la <Text style={styles.textConditionsLink} onPress={onPrivacyPolicy}>Politique de Confidentialité</Text>.
-                </Text>
+                </Text> */}
         </SafeAreaView>
       </ImageBackground>
 
@@ -197,7 +197,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: "black",
+    color: GLOBAL.COLOR.BLACK,
     fontSize: GLOBAL.TEXT.H2,
     fontFamily: 'Futura',
     fontWeight: '700' ,
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
   },
 
   textConditions: {
-    color: "black",
+    color: GLOBAL.COLOR.BLACK,
     fontSize: GLOBAL.TEXT.TEXT,
     fontStyle: 'italic' ,
     fontFamily: 'Futura',
@@ -220,6 +220,6 @@ const styles = StyleSheet.create({
   },
 
   textConditionsLink: {
-    color: "green",
+    color: GLOBAL.COLOR.FIRSTCOLOR,
   }
 })

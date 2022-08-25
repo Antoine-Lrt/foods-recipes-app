@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "food-react-native-App",
+    "name": "FOOD",
+    "description": "Des recettes pour tous",
     "scheme": "foodApp",
     "slug": "foods-react-native-App",
     "version": "1.0.0",
@@ -19,7 +20,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.antoinelaurentdev.foodsreactnativeApp"
     },
     "android": {
       "adaptiveIcon": {
@@ -29,6 +31,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c4c8c599-3f12-48c8-a300-24dd6c2646b2"
+      }
     }
   }
 }

@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 // NAVIGATION
 import Navigation from './src/navigation/Navigation';
@@ -19,13 +20,27 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 
 
+
 export default function App() {
+  const [onboarded, setOnboarded] = useState();
+
+  useEffect(() => {
+    getStorage();
+  },[])
+
+  const getStorage = async () => {
+    const onboarded = await AsyncStorage.getItem('ONBOARDED')
+    setOnboarded(onboarded)
+  }
+
+  console.log(onboarded);
+
   return (
     <AuthContextProvider>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <View style={styles.root}>
-            <Navigation />
+            <Navigation onboarded={onboarded}/>
           </View>
         </PersistGate>
       </Provider>

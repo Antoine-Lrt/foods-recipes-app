@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import {
-  Image, SafeAreaView, StyleSheet, View, ImageBackground, Text
+  Image, SafeAreaView, StyleSheet, View, ImageBackground, Text, ActivityIndicator
 } from 'react-native';
+
 
 // HOOKS //
 import {useForm} from 'react-hook-form'
@@ -19,6 +20,7 @@ import CustomButton from '../components/CustomButton';
 import CustomInputText from '../components/CustomInputText';
 import CustomInputPassword from '../components/CustomInputPassword';
 import SocialSignInButton from '../components/SocialSignInButton'
+
 
 // CONSTANTS //
 import GLOBAL from '../constants/GLOBAL';
@@ -74,7 +76,11 @@ function SignIn() {
     navigation.navigate('SignUp')
   };
 
- 
+  const Loading = () => {
+    <View>
+      <ActivityIndicator size={large}/>
+    </View>
+  }
 
   return (
   // <ScrollView showsVerticalScrollIndicator={false}>

@@ -9,7 +9,7 @@ import data from '../data/data.json'
 
 // COMPONENTS //
 import RecipesFavoriteCard from './RecipesFavoriteCard'
-import CustomSearchBar from './CustomSearchBar'
+
 
 
 // CONSTANTS //

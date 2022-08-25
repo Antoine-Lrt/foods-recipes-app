@@ -2,7 +2,6 @@ import { FlatList, StyleSheet, Text, View, Image, Dimensions, SafeAreaView } fro
 import React, {useState} from 'react'
 import { useNavigation } from '@react-navigation/native'
 
-import { BASE_URL } from '../../utils/baseUrl';
 
 
 
@@ -10,7 +9,7 @@ import { BASE_URL } from '../../utils/baseUrl';
 
 
 // DATA //
-import data from '../data/data.json'
+// import data from '../data/data.json'
 
 
 // COMPONENTS //

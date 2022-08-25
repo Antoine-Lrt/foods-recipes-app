@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
       borderRadius: 10,
       justifyContent: 'center',
       alignItems:'center',
-  
       marginTop: 5
     },
 
@@ -67,7 +66,7 @@ const styles = StyleSheet.create({
 
     buttonText:{
       color: GLOBAL.COLOR.WHITE,
-      fontFamily: 'Futura',
+      fontFamily: GLOBAL.TEXT.FONTFAMILY,
     },
 
       buttonText_SECOND:{

@@ -1,7 +1,12 @@
-import LottieView from 'lottie-react-native'
+// import LottieView from 'lottie-react-native'
 import React from 'react'
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, StyleSheet, Text, View, Image } from 'react-native'
+
+// COMPONENT //
 import CustomButton from '../components/CustomButton'
+
+// COSNTANTS //
+import GLOBAL from '../constants/GLOBAL'
 
 
 
@@ -10,7 +15,7 @@ const {width} = Dimensions.get("window")
 
 
 
-const Slide = ({lighText, boldText, iconUrl, infosTitle, infosText, btnTxt, btnType,btnOnPress }) => {
+const Slide = ({lighText, boldText, imageUrl, infosTitle, infosText, btnTxt, btnType,btnOnPress }) => {
 
     const Indicator = ({scrollx}) => {
         return <View>
@@ -25,25 +30,23 @@ const Slide = ({lighText, boldText, iconUrl, infosTitle, infosText, btnTxt, btnT
                 <Text style={styles.slideLightText}>{lighText}</Text>
                 <Text style={styles.slideBoldText}>{boldText}</Text>
             </Text>
-            <View style={styles.iconContainer}>
-                <LottieView 
-                        source={iconUrl}
-                        autoPlay 
-                        loop 
-                        style={{
-                        height: 350,
-                        }}
+            <View style={styles.imageContainer}>
+                <Image
+                    style={styles.image}
+                    source={imageUrl}
                 />
             </View>
             <View style={styles.slideInfosContainer}>
                 <Text style={styles.slideInfosTitle} > {infosTitle} </Text>
                 <Text style={styles.slideInfosText}> {infosText} </Text>
-                <CustomButton text={btnTxt} type={btnType} onPress={btnOnPress} />
+                <CustomButton 
+                    text={btnTxt} 
+                    type={btnType} 
+                    onPress={btnOnPress}
+                    width={200}
+                    height={40}
+                     />
             </View>
-           
-  
-            
-        
         </View>
   )
 }
@@ -70,26 +73,31 @@ const styles = StyleSheet.create({
     },
     
     slideLightText:{
-        color: "grey",
-        fontFamily: 'Futura',
-        fontSize: 35,
+        color: GLOBAL.COLOR.BLACK,
+        fontFamily: GLOBAL.TEXT.FONTFAMILY,
+        fontSize: GLOBAL.TEXT.H2,
         fontWeight: 'light',
         textTransform: 'uppercase'
     },
     slideBoldText: {
-        color: "green",
-        fontFamily: 'Futura',
-        fontWeight: 'bold' ,
-        fontSize: 40,
+        color: GLOBAL.COLOR.FIRSTCOLOR,
+        fontFamily: GLOBAL.TEXT.FONTFAMILY,
+        fontWeight: 'bold',
+        fontSize: GLOBAL.TEXT.H1,
         textTransform: 'uppercase',
         
     },
 
-    iconContainer: {
-        flex: .3,
+    imageContainer: {
+        flex: .2,
         marginBottom: 30,
         alignItems:'center',
         justifyContent:'center',
+    },
+
+    image: {
+        width:300,
+        height:300
     },
     
     slideInfosContainer: {
@@ -99,19 +107,19 @@ const styles = StyleSheet.create({
     },
 
     slideInfosTitle: {
-        color: "black",
-        fontSize:30,
-        fontFamily: 'Futura',
+        color: GLOBAL.COLOR.BLACK,
+        fontSize: GLOBAL.TEXT.H2,
+        fontFamily: GLOBAL.TEXT.FONTFAMILY,
         fontWeight: 'bold' ,
         marginBottom: 10
 
     },
 
     slideInfosText: {
-        color: "black",
-        fontFamily: 'Futura',
+        color: GLOBAL.COLOR.BLACK,
+          fontFamily: GLOBAL.TEXT.FONTFAMILY,
         fontWeight: 'light' ,
-        fontSize: 15,
+        fontSize: GLOBAL.TEXT.H3,
         width: 300,
         textAlign: 'center',
         marginBottom: 20

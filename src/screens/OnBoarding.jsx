@@ -1,9 +1,16 @@
 import React, { useRef } from 'react'
 import { Animated, Dimensions, ImageBackground, StyleSheet, View } from 'react-native'
-import image from '../../assets/images/background.jpg'
-import Slide from '../components/Slide'
 import { useNavigation } from '@react-navigation/native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
+// COMPONENTS //
+import Slide from '../components/Slide'
+
+// IMAGES //
+import image from '../../assets/images/background.jpg'
+
+// CONSTANTS //
+import GLOBAL from '../constants/GLOBAL'
 
 
 const OnBoarding = () => {
@@ -16,7 +23,7 @@ const OnBoarding = () => {
       boldText: "goûts",
       infosTitle : "Selon tes envies",
       infosText: "Burger, Sushi, Salades... tu trouveras une recette faite pour toi",
-      iconUrl: require("../../../assets/AnimationIcons/92072-foodie.json"),
+      imageUrl:  require("../../assets/images/poke-bowl-amico.png"),
       btnType: "SECOND",
     },
     {
@@ -24,7 +31,7 @@ const OnBoarding = () => {
       boldText: "budgets",
       infosTitle: "Sans te ruiner",
       infosText: "Tu trouverras des recettes adaptées à ton budget",
-      iconUrl:  require("../../../assets/AnimationIcons/55607-flying-wallet-money.json"),
+      imageUrl:  require("../../assets/images/piggy-bank-amico.png"),
       btnType: "SECOND",
     },
     {
@@ -32,7 +39,7 @@ const OnBoarding = () => {
       boldText: "niveaux",
       infosTitle : "Tu en es capable",
       infosText: "Chef étoilé ou pas , il y des recettes adaptées à ton niveau de cuisine",
-      iconUrl:  require("../../../assets/AnimationIcons/92072-foodie.json"),
+      imageUrl:  require("../../assets/images/chef-amico.png"),
       btnType: "SECOND",
     },
     {
@@ -40,7 +47,7 @@ const OnBoarding = () => {
       boldText: "plaisir",
       infosTitle : "Let's go",
       infosText: "Decouvre nos dernieres recettes et montre à tout le monde tes talents de chef",
-      iconUrl: require("../../../assets/AnimationIcons/24845-holding-money.json"),
+      imageUrl:  require("../../assets/images/smiley-face-amico.png"),
       btnType: "FIRST",
       btnTxt: "C'est partie !"
     },
@@ -63,7 +70,7 @@ const OnBoarding = () => {
           height:9,
           width:9,
           borderRadius:5,
-          backgroundColor:'grey',
+          backgroundColor: GLOBAL.COLOR.FIRSTCOLOR,
           margin: 10,
           transform: [ {scale}]
         }}
@@ -78,14 +85,15 @@ const OnBoarding = () => {
     boldText={item.boldText} 
     infosTitle={item.infosTitle}
     infosText={item.infosText}
-    iconUrl={item.iconUrl}
+    imageUrl={item.imageUrl}
     btnType={item.btnType}
     btnTxt={item.btnTxt}
     btnOnPress={onPressedContinue}
     />
 ) 
 
-const onPressedContinue = () =>{
+const onPressedContinue = async () =>{
+  await AsyncStorage.setItem('ONBOARDED','true'); 
   navigation.navigate('SignIn')
 }
 
@@ -117,7 +125,7 @@ const navigation = useNavigation()
             {useNativeDriver: false}
           )}
         />
-      <Indicator scrollX={scrollX} />
+      <Indicator scrollX={scrollX}  />
       </ImageBackground>
   
     </View>
@@ -140,7 +148,7 @@ const styles = StyleSheet.create({
   },
   slider:{
     // flex: 1.4 ,
-    backgroundColor: 'white', // METTRE AVEC GLOBALS APRES
+    backgroundColor: GLOBAL.COLOR.WHITE,
   },
 
   footer: {

@@ -18,7 +18,7 @@ module.exports = {
     },
 
     TEXT:{
-      H1: 50,
+      H1: 40,
       H2: 30,
       H3: 15,
       TEXT: 13,
